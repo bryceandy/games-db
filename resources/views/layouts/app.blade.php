@@ -28,7 +28,7 @@
                         type="text"
                         class="bg-gray-800 text-sm rounded-full px-3 py-1 w-64 focus:outline-none pl-8"
                         placeholder="Search..."
-                    >
+                    />
                     <div class="absolute top-0 flex items-center ml-2 h-full">
                         <a href="#">
                             <svg
