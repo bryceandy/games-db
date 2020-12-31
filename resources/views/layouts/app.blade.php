@@ -43,7 +43,7 @@
                 </div>
                 <div class="ml-6">
                     <a href="#">
-                        <img src="{{ asset('larydefault.svg') }}" alt="avatar" class="rounded-full w-8">
+                        <img src="{{ asset('avatar.png') }}" alt="avatar" class="rounded-full w-8">
                     </a>
                 </div>
             </div>
