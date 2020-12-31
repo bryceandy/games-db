@@ -14,7 +14,7 @@
         <nav class="container mx-auto flex items-center justify-between px-4 py-6">
             <div class="flex items-center">
                 <a href="/">
-                    <img src="{{ asset('laracasts-logo.svg') }}" alt="" class="w-32 flex-none">
+                    <img src="{{ asset('logo.svg') }}" alt="" class="w-32 max-h-8 flex-none">
                 </a>
                 <ul class="flex ml-16 space-x-8">
                     <li><a href="#" class="hover:text-gray-400">Games</a></li>
