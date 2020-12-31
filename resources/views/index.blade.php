@@ -220,6 +220,6 @@
                 </a>
                 <div class="text-gray-400 mt-1">X Box</div>
             </div>
-        </div>
+        </div> {{--End popular games--}}
     </div>
 @endsection
