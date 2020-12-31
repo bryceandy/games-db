@@ -49,6 +49,15 @@
             </div>
         </nav>
     </header>
-    @yield('content')
+
+    <main class="py-8">
+        @yield('content')
+    </main>
+
+    <footer class="border-t border-gray-800">
+        <div class="container mx-auto px-4 py-6">
+            Powered by <a href="https://www.igdb.com" class="underline hover:text-gray-400">IGDB</a>
+        </div>
+    </footer>
 </body>
 </html>
