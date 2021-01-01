@@ -4,7 +4,7 @@
     <div class="container mx-auto px-4">
         <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Popular Games</h2>
         <div class="popular-games text-sm grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-6 gap-12 border-b border-gray-800 pb-16">
-            <div class="game mt-8">
+            <div class="game mt-8 flex md:block flex-col items-center">
                 <div class="relative inline-block">
                     <a href="#">
                         <img
@@ -24,7 +24,7 @@
                     Xbox One, PlayStation 4, PC (Microsoft Windows), Nintendo Switch
                 </div>
             </div>
-            <div class="game mt-8">
+            <div class="game mt-8 flex md:block flex-col items-center">
                 <div class="relative inline-block">
                     <a href="#">
                         <img
@@ -44,7 +44,7 @@
                     Xbox One, PlayStation 4, PlayStation 5, PC (Microsoft Windows), Nintendo Switch, Xbox Series
                 </div>
             </div>
-            <div class="game mt-8">
+            <div class="game mt-8 flex md:block flex-col items-center">
                 <div class="relative inline-block">
                     <a href="#">
                         <img
@@ -62,7 +62,7 @@
                 </a>
                 <div class="text-gray-400 mt-1">Playstation 4, Playstation 5</div>
             </div>
-            <div class="game mt-8">
+            <div class="game mt-8 flex md:block flex-col items-center">
                 <div class="relative inline-block">
                     <a href="#">
                         <img
@@ -82,7 +82,7 @@
                     Xbox One, PlayStation 4, PlayStation 5, PC (Microsoft Windows), Google Stadia, Xbox Series
                 </div>
             </div>
-            <div class="game mt-8">
+            <div class="game mt-8 flex md:block flex-col items-center">
                 <div class="relative inline-block">
                     <a href="#">
                         <img
@@ -100,7 +100,7 @@
                 </a>
                 <div class="text-gray-400 mt-1">Nintendo Switch</div>
             </div>
-            <div class="game mt-8">
+            <div class="game mt-8 flex md:block flex-col items-center">
                 <div class="relative inline-block">
                     <a href="#">
                         <img
@@ -120,7 +120,7 @@
                     Xbox One, PlayStation 4, PC (Microsoft Windows)
                 </div>
             </div>
-            <div class="game mt-8">
+            <div class="game mt-8 flex md:block flex-col items-center">
                 <div class="relative inline-block">
                     <a href="#">
                         <img
@@ -140,7 +140,7 @@
                     Xbox One, PlayStation 4, PlayStation 5, PC (Microsoft Windows), Google Stadia, Xbox Series
                 </div>
             </div>
-            <div class="game mt-8">
+            <div class="game mt-8 flex md:block flex-col items-center">
                 <div class="relative inline-block">
                     <a href="#">
                         <img
@@ -160,7 +160,7 @@
                     Xbox One, PlayStation 4, PC (Microsoft Windows), Nintendo Switch
                 </div>
             </div>
-            <div class="game mt-8">
+            <div class="game mt-8 flex md:block flex-col items-center">
                 <div class="relative inline-block">
                     <a href="#">
                         <img
@@ -180,7 +180,7 @@
                     Xbox One, PlayStation 4, Mac, PC (Microsoft Windows), Nintendo Switch
                 </div>
             </div>
-            <div class="game mt-8">
+            <div class="game mt-8 flex md:block flex-col items-center">
                 <div class="relative inline-block">
                     <a href="#">
                         <img
@@ -200,7 +200,7 @@
                     Xbox One, PlayStation 4, PC (Microsoft Windows), Stadia
                 </div>
             </div>
-            <div class="game mt-8">
+            <div class="game mt-8 flex md:block flex-col items-center">
                 <div class="relative inline-block">
                     <a href="#">
                         <img
@@ -220,7 +220,7 @@
                     Xbox One, PlayStation 4, PlayStation 5, PC (Microsoft Windows), Nintendo Switch, Google Stadia, Xbox Series
                 </div>
             </div>
-            <div class="game mt-8">
+            <div class="game mt-8 flex md:block flex-col items-center">
                 <div class="relative inline-block">
                     <a href="#">
                         <img
