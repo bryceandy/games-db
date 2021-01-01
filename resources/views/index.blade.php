@@ -322,10 +322,120 @@
                 </div>
             </div>
             {{--End recently viewed--}}
-            <div class="most-anticipated w-1/4">
+            <div class="most-anticipated-coming-soon w-1/4">
                 <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Most Anticipated</h2>
+                <div class="most-anticipated-container space-y-10 mt-8">
+                    <div class="game flex">
+                        <a href="#">
+                            <img
+                                src="{{ asset('biomutant.jpg') }}"
+                                alt="game cover"
+                                class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
+                            />
+                        </a>
+                        <div class="ml-4">
+                            <a href="#" class="hover:text-gray-300">Biomutant</a>
+                            <p class="text-gray-400 text-sm mt-1">Sept 20, 2021</p>
+                        </div>
+                    </div>
+                    <div class="game flex">
+                        <a href="#">
+                            <img
+                                src="{{ asset('halo.jpg') }}"
+                                alt="game cover"
+                                class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
+                            />
+                        </a>
+                        <div class="ml-4">
+                            <a href="#" class="hover:text-gray-300">Halo Infinite</a>
+                            <p class="text-gray-400 text-sm mt-1">Oct, 2021</p>
+                        </div>
+                    </div>
+                    <div class="game flex">
+                        <a href="#">
+                            <img
+                                src="{{ asset('horizon.jpg') }}"
+                                alt="game cover"
+                                class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
+                            />
+                        </a>
+                        <div class="ml-4">
+                            <a href="#" class="hover:text-gray-300">Horizon Forbidden West</a>
+                            <p class="text-gray-400 text-sm mt-1">Dec, 2021</p>
+                        </div>
+                    </div>
+                    <div class="game flex">
+                        <a href="#">
+                            <img
+                                src="{{ asset('vampire.jpg') }}"
+                                alt="game cover"
+                                class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
+                            />
+                        </a>
+                        <div class="ml-4">
+                            <a href="#" class="hover:text-gray-300">Vampire: The Masquerade</a>
+                            <p class="text-gray-400 text-sm mt-1">March, 2021</p>
+                        </div>
+                    </div>
+                </div>
+                {{--End most anticipated--}}
+                <h2 class="text-blue-500 uppercase tracking-wide font-semibold mt-10">Coming Soon</h2>
+                <div class="coming-soon-container space-y-10 mt-8">
+                    <div class="game flex">
+                        <a href="#">
+                            <img
+                                src="{{ asset('biomutant.jpg') }}"
+                                alt="game cover"
+                                class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
+                            />
+                        </a>
+                        <div class="ml-4">
+                            <a href="#" class="hover:text-gray-300">Biomutant</a>
+                            <p class="text-gray-400 text-sm mt-1">Sept 20, 2021</p>
+                        </div>
+                    </div>
+                    <div class="game flex">
+                        <a href="#">
+                            <img
+                                src="{{ asset('halo.jpg') }}"
+                                alt="game cover"
+                                class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
+                            />
+                        </a>
+                        <div class="ml-4">
+                            <a href="#" class="hover:text-gray-300">Halo Infinite</a>
+                            <p class="text-gray-400 text-sm mt-1">Oct, 2021</p>
+                        </div>
+                    </div>
+                    <div class="game flex">
+                        <a href="#">
+                            <img
+                                src="{{ asset('horizon.jpg') }}"
+                                alt="game cover"
+                                class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
+                            />
+                        </a>
+                        <div class="ml-4">
+                            <a href="#" class="hover:text-gray-300">Horizon Forbidden West</a>
+                            <p class="text-gray-400 text-sm mt-1">Dec, 2021</p>
+                        </div>
+                    </div>
+                    <div class="game flex">
+                        <a href="#">
+                            <img
+                                src="{{ asset('vampire.jpg') }}"
+                                alt="game cover"
+                                class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
+                            />
+                        </a>
+                        <div class="ml-4">
+                            <a href="#" class="hover:text-gray-300">Vampire: The Masquerade</a>
+                            <p class="text-gray-400 text-sm mt-1">March, 2021</p>
+                        </div>
+                    </div>
+                </div>
+                {{--End coming soon--}}
             </div>
-            {{--End most anticipated--}}
         </div>
     </div>
 @endsection
