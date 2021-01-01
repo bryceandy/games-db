@@ -324,7 +324,7 @@
                 </div>
             </div>
             {{--End recently viewed--}}
-            <div class="most-anticipated-coming-soon mt-12 lg:mt-0 w-1/4">
+            <div class="most-anticipated-coming-soon mt-12 lg:mt-0 w-full md:w-1/4">
                 <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Most Anticipated</h2>
                 <div class="most-anticipated-container space-y-10 mt-8">
                     <div class="game flex">
