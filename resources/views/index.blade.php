@@ -220,6 +220,17 @@
                 </a>
                 <div class="text-gray-400 mt-1">X Box</div>
             </div>
-        </div> {{--End popular games--}}
+        </div>
+        {{--End popular games--}}
+        <div class="flex my-10">
+            <div class="recently-reviewed w-3/4 mr-32">
+                <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Recently Reviewed</h2>
+            </div>
+            {{--End recently viewed--}}
+            <div class="most-anticipated w-1/4">
+                <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Most Anticipated</h2>
+            </div>
+            {{--End most anticipated--}}
+        </div>
     </div>
 @endsection
