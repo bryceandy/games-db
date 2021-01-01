@@ -10,7 +10,7 @@
                         <img
                             src="{{ asset('assasinscreed.jpg') }}"
                             alt="game cover"
-                            class="hover:opacity-75 transition ease-in-out duration-100"
+                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
                         />
                     </a>
                     <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
@@ -28,7 +28,7 @@
                         <img
                             src="{{ asset('starwars.jpg') }}"
                             alt="game cover"
-                            class="hover:opacity-75 transition ease-in-out duration-100"
+                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
                         />
                     </a>
                     <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
@@ -46,7 +46,7 @@
                         <img
                             src="{{ asset('spiderman.jpg') }}"
                             alt="game cover"
-                            class="hover:opacity-75 transition ease-in-out duration-100"
+                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
                         />
                     </a>
                     <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
@@ -64,7 +64,7 @@
                         <img
                             src="{{ asset('watchdogs.jpg') }}"
                             alt="game cover"
-                            class="hover:opacity-75 transition ease-in-out duration-100"
+                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
                         />
                     </a>
                     <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
@@ -82,7 +82,7 @@
                         <img
                             src="{{ asset('hyrule.jpg') }}"
                             alt="game cover"
-                            class="hover:opacity-75 transition ease-in-out duration-100"
+                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
                         />
                     </a>
                     <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
@@ -100,7 +100,7 @@
                         <img
                             src="{{ asset('mirror.jpg') }}"
                             alt="game cover"
-                            class="hover:opacity-75 transition ease-in-out duration-100"
+                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
                         />
                     </a>
                     <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
@@ -118,7 +118,7 @@
                         <img
                             src="{{ asset('cyberpunk.jpg') }}"
                             alt="game cover"
-                            class="hover:opacity-75 transition ease-in-out duration-100"
+                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
                         />
                     </a>
                     <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
@@ -136,7 +136,7 @@
                         <img
                             src="{{ asset('ghostrunner.jpg') }}"
                             alt="game cover"
-                            class="hover:opacity-75 transition ease-in-out duration-100"
+                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
                         />
                     </a>
                     <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
@@ -154,7 +154,7 @@
                         <img
                             src="{{ asset('empire.jpg') }}"
                             alt="game cover"
-                            class="hover:opacity-75 transition ease-in-out duration-100"
+                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
                         />
                     </a>
                     <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
@@ -172,7 +172,7 @@
                         <img
                             src="{{ asset('fifa.jpg') }}"
                             alt="game cover"
-                            class="hover:opacity-75 transition ease-in-out duration-100"
+                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
                         />
                     </a>
                     <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
@@ -190,7 +190,7 @@
                         <img
                             src="{{ asset('immortals.jpg') }}"
                             alt="game cover"
-                            class="hover:opacity-75 transition ease-in-out duration-100"
+                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
                         />
                     </a>
                     <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
@@ -208,7 +208,7 @@
                         <img
                             src="{{ asset('demon.jpg') }}"
                             alt="game cover"
-                            class="hover:opacity-75 transition ease-in-out duration-100"
+                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
                         />
                     </a>
                     <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
