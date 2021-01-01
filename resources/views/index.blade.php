@@ -20,7 +20,9 @@
                 <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
                     Assassin's Creed: Valhalla
                 </a>
-                <div class="text-gray-400 mt-1">Playstation 5</div>
+                <div class="text-gray-400 mt-1">
+                    Xbox One, PlayStation 4, PC (Microsoft Windows), Nintendo Switch
+                </div>
             </div>
             <div class="game mt-8">
                 <div class="relative inline-block">
@@ -38,7 +40,9 @@
                 <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
                     Star Wars: Squadrons
                 </a>
-                <div class="text-gray-400 mt-1">X Box III</div>
+                <div class="text-gray-400 mt-1">
+                    Xbox One, PlayStation 4, PlayStation 5, PC (Microsoft Windows), Nintendo Switch, Xbox Series
+                </div>
             </div>
             <div class="game mt-8">
                 <div class="relative inline-block">
@@ -56,7 +60,7 @@
                 <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
                     Spider-Man: Miles Morales
                 </a>
-                <div class="text-gray-400 mt-1">Nintendo Twitch</div>
+                <div class="text-gray-400 mt-1">Playstation 4, Playstation 5</div>
             </div>
             <div class="game mt-8">
                 <div class="relative inline-block">
@@ -94,7 +98,7 @@
                 <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
                     Hyrule Warriors: Age of Calamity
                 </a>
-                <div class="text-gray-400 mt-1">Play Station 5</div>
+                <div class="text-gray-400 mt-1">Nintendo Switch</div>
             </div>
             <div class="game mt-8">
                 <div class="relative inline-block">
@@ -112,7 +116,9 @@
                 <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
                     Twin Mirror
                 </a>
-                <div class="text-gray-400 mt-1">Play Station 5</div>
+                <div class="text-gray-400 mt-1">
+                    Xbox One, PlayStation 4, PC (Microsoft Windows)
+                </div>
             </div>
             <div class="game mt-8">
                 <div class="relative inline-block">
@@ -130,7 +136,9 @@
                 <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
                     Cyber Punk 2077
                 </a>
-                <div class="text-gray-400 mt-1">Play Station Portable</div>
+                <div class="text-gray-400 mt-1">
+                    Xbox One, PlayStation 4, PlayStation 5, PC (Microsoft Windows), Google Stadia, Xbox Series
+                </div>
             </div>
             <div class="game mt-8">
                 <div class="relative inline-block">
@@ -148,7 +156,9 @@
                 <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
                     Ghost Runner
                 </a>
-                <div class="text-gray-400 mt-1">X Box IV</div>
+                <div class="text-gray-400 mt-1">
+                    Xbox One, PlayStation 4, PC (Microsoft Windows), Nintendo Switch
+                </div>
             </div>
             <div class="game mt-8">
                 <div class="relative inline-block">
@@ -166,7 +176,9 @@
                 <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
                     Empire of Sin
                 </a>
-                <div class="text-gray-400 mt-1">X Box V</div>
+                <div class="text-gray-400 mt-1">
+                    Xbox One, PlayStation 4, Mac, PC (Microsoft Windows), Nintendo Switch
+                </div>
             </div>
             <div class="game mt-8">
                 <div class="relative inline-block">
@@ -184,7 +196,9 @@
                 <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
                     Fifa 21
                 </a>
-                <div class="text-gray-400 mt-1">Playstation 5, PC</div>
+                <div class="text-gray-400 mt-1">
+                    Xbox One, PlayStation 4, PC (Microsoft Windows), Stadia
+                </div>
             </div>
             <div class="game mt-8">
                 <div class="relative inline-block">
@@ -222,7 +236,7 @@
                 <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
                     Demon's Souls
                 </a>
-                <div class="text-gray-400 mt-1">X Box</div>
+                <div class="text-gray-400 mt-1">Playstation 5</div>
             </div>
         </div>
         {{--End popular games--}}
@@ -247,7 +261,7 @@
                             <a href="#" class="block text-lg font-semibold leading-tight hover:text-gray-400 mt-4">
                                 Demon's Souls
                             </a>
-                            <div class="text-gray-400 mt-1">X Box</div>
+                            <div class="text-gray-400 mt-1">Playstation 5</div>
                             <p class="mt-6 text-gray-400">
                                 A full remake of Demon's Souls (2009) featuring improved graphics and animations, sound and lighting tweaks and a reimagining of many of the visual, musical and mechanical aspects of the original game.
                             </p>
