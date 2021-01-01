@@ -24,8 +24,10 @@
             </div>
             <div class="flex items-center mt-6 lg:mt-0">
                 <div class="relative">
+                    <label for="search"></label>
                     <input
                         type="text"
+                        id="search"
                         class="bg-gray-800 text-sm rounded-full px-3 py-1 w-64 focus:outline-none focus:ring focus:border-blue-300 pl-8"
                         placeholder="Search..."
                     />
