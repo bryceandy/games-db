@@ -74,7 +74,9 @@
                 <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
                     Watch Dogs: Legion
                 </a>
-                <div class="text-gray-400 mt-1">Play Station 4</div>
+                <div class="text-gray-400 mt-1">
+                    Xbox One, PlayStation 4, PlayStation 5, PC (Microsoft Windows), Google Stadia, Xbox Series
+                </div>
             </div>
             <div class="game mt-8">
                 <div class="relative inline-block">
@@ -200,7 +202,9 @@
                 <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
                     Immortals: Fenyx Rising
                 </a>
-                <div class="text-gray-400 mt-1">PC, X Box</div>
+                <div class="text-gray-400 mt-1">
+                    Xbox One, PlayStation 4, PlayStation 5, PC (Microsoft Windows), Nintendo Switch, Google Stadia, Xbox Series
+                </div>
             </div>
             <div class="game mt-8">
                 <div class="relative inline-block">
@@ -225,6 +229,85 @@
         <div class="flex my-10">
             <div class="recently-reviewed w-3/4 mr-32">
                 <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Recently Reviewed</h2>
+                <div class="recently-reviewed-container space-y-12 mt-8">
+                    <div class="game bg-gray-800 rounded-lg shadow-md flex px-6 py-6">
+                        <div class="relative flex-none">
+                            <a href="#">
+                                <img
+                                    src="{{ asset('demon.jpg') }}"
+                                    alt="game cover"
+                                    class="w-48 rounded-xl hover:opacity-75 transition ease-in-out duration-100"
+                                />
+                            </a>
+                            <div class="absolute w-16 h-16 bg-gray-900 rounded-full" style="bottom: -20px;right: -20px;">
+                                <div class="font-semibold text-xs flex justify-center items-center h-full">93%</div>
+                            </div>
+                        </div>
+                        <div class="ml-12">
+                            <a href="#" class="block text-lg font-semibold leading-tight hover:text-gray-400 mt-4">
+                                Demon's Souls
+                            </a>
+                            <div class="text-gray-400 mt-1">X Box</div>
+                            <p class="mt-6 text-gray-400">
+                                A full remake of Demon's Souls (2009) featuring improved graphics and animations, sound and lighting tweaks and a reimagining of many of the visual, musical and mechanical aspects of the original game.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="game bg-gray-800 rounded-lg shadow-md flex px-6 py-6">
+                        <div class="relative flex-none">
+                            <a href="#">
+                                <img
+                                    src="{{ asset('watchdogs.jpg') }}"
+                                    alt="game cover"
+                                    class="w-48 rounded-xl hover:opacity-75 transition ease-in-out duration-100"
+                                />
+                            </a>
+                            <div class="absolute w-16 h-16 bg-gray-900 rounded-full" style="bottom: -20px;right: -20px;">
+                                <div class="font-semibold text-xs flex justify-center items-center h-full">81%</div>
+                            </div>
+                        </div>
+                        <div class="ml-12">
+                            <a href="#" class="block text-lg font-semibold leading-tight hover:text-gray-400 mt-4">
+                                Watch Dogs: Legion
+                            </a>
+                            <div class="text-gray-400 mt-1">
+                                Xbox One, PlayStation 4, PlayStation 5, PC (Microsoft Windows), Google Stadia, Xbox Series
+                            </div>
+                            <p class="mt-6 text-gray-400">
+                                In Watch Dogs: Legion, near future London is facing its downfall...unless you do something about it. Build a resistance, fight back, and give the city back to the people. It’s time to rise up.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="game bg-gray-800 rounded-lg shadow-md flex px-6 py-6">
+                        <div class="relative flex-none">
+                            <a href="#">
+                                <img
+                                    src="{{ asset('immortals.jpg') }}"
+                                    alt="game cover"
+                                    class="w-48 rounded-xl hover:opacity-75 transition ease-in-out duration-100"
+                                />
+                            </a>
+                            <div class="absolute w-16 h-16 bg-gray-900 rounded-full" style="bottom: -20px;right: -20px;">
+                                <div class="font-semibold text-xs flex justify-center items-center h-full">68%</div>
+                            </div>
+                        </div>
+                        <div class="ml-12">
+                            <a href="#" class="block text-lg font-semibold leading-tight hover:text-gray-400 mt-4">
+                                Immortals: Fenyx Rising
+                            </a>
+                            <div class="text-gray-400 mt-1">
+                                Xbox One, PlayStation 4, PlayStation 5, PC (Microsoft Windows), Nintendo Switch, Google Stadia, Xbox Series
+                            </div>
+                            <p class="mt-6 text-gray-400">
+                                From the creators of Assassin’s Creed Odyssey comes a storybook adventure about a forgotten hero on a quest to save the Greek gods.
+
+                                Embark on a journey to the Isle of the Blessed, taken over by dangerous creatures of mythology. Prove your legendary heroism by taking on their leader, Typhon, the deadliest monster in all of mythology in a face-off for the ages.
+                                Explore a beautiful fantasy world where tricky puzzles, mysterious dungeons and heroic feats await. The journey will be as challenging and rewarding as the final destination.
+                                Will you be the Hero of the legends foretold?
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
             {{--End recently viewed--}}
             <div class="most-anticipated w-1/4">
