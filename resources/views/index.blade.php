@@ -79,7 +79,7 @@
                         <div class="game flex">
                             <a href="/games/{{ $game['slug'] }}">
                                 <img
-                                    src="{{ $game['cover']['url'] }}"
+                                    src="{{ str_replace('thumb', 'cover_small', $game['cover']['url']) }}"
                                     alt="game cover"
                                     class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
                                 />
@@ -100,7 +100,7 @@
                         <div class="game flex">
                             <a href="/games/{{ $game['slug'] }}">
                                 <img
-                                    src="{{ $game['cover']['url'] }}"
+                                    src="{{ str_replace('thumb', 'cover_small', $game['cover']['url']) }}"
                                     alt="game cover"
                                     class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
                                 />
