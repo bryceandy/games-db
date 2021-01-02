@@ -27,6 +27,7 @@ class GameController extends Controller
         );*/
         $before = now()->subMonths(2)->timestamp;
         $after = now()->addMonths(2)->timestamp;
+        $current = now()->timestamp;
 
         $popularGames = Http::withHeaders([
             'Client-ID' => config('igdb.credentials.client_id'),
@@ -46,7 +47,24 @@ class GameController extends Controller
             ->post(config('igdb.base_url') . 'games')
             ->json();
 
-        return view('index', compact('popularGames'));
+        $recentlyReviewed = Http::withHeaders([
+            'Client-ID' => config('igdb.credentials.client_id'),
+            'Authorization' => "Bearer dtzj0cl1wqhisdiz8z9glxfko0uu1p",
+        ])
+            ->withBody(
+                "
+                    fields name, cover.url, first_release_date, rating_count, platforms.abbreviation, rating, slug, summary;
+                    where platforms = (48,49,130,6)
+                        & rating_count > 5
+                        & (first_release_date >= ${before} & first_release_date < ${current});
+                    limit 3;
+                ",
+                'text/plain'
+            )
+            ->post(config('igdb.base_url') . 'games')
+            ->json();
+
+        return view('index', compact('popularGames', 'recentlyReviewed'));
     }
 
     /**

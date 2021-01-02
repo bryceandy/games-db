@@ -34,81 +34,33 @@
             <div class="recently-reviewed w-full lg:w-3/4 mr-0 lg:mr-32">
                 <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Recently Reviewed</h2>
                 <div class="recently-reviewed-container space-y-12 mt-8">
-                    <div class="game bg-gray-800 rounded-lg shadow-md flex flex-col md:flex-row items-start px-6 py-6">
-                        <div class="relative flex-none">
-                            <a href="#">
-                                <img
-                                    src="{{ asset('demon.jpg') }}"
-                                    alt="game cover"
-                                    class="w-48 rounded-xl hover:opacity-75 transition ease-in-out duration-100"
-                                />
-                            </a>
-                            <div class="absolute w-16 h-16 bg-gray-900 rounded-full" style="bottom: -20px;right: -20px;">
-                                <div class="font-semibold text-xs flex justify-center items-center h-full">93%</div>
+                    @foreach($recentlyReviewed as $game)
+                        <div class="game bg-gray-800 rounded-lg shadow-md flex flex-col md:flex-row items-start px-6 py-6">
+                            <div class="relative flex-none">
+                                <a href="#">
+                                    <img
+                                        src="{{ str_replace('thumb', 'cover_big', $game['cover']['url']) }}"
+                                        alt="game cover"
+                                        class="w-48 rounded-xl hover:opacity-75 transition ease-in-out duration-100"
+                                    />
+                                </a>
+                                <div class="absolute w-16 h-16 bg-gray-900 rounded-full" style="bottom: -20px;right: -20px;">
+                                    <div class="font-semibold text-xs flex justify-center items-center h-full">
+                                        {{ isset($game['rating']) ? round($game['rating'], 1) . '%' : 'NA' }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ml-0 md:ml-12">
+                                <a href="#" class="block text-lg font-semibold leading-tight hover:text-gray-400 mt-6">
+                                    {{ $game['name'] }}
+                                </a>
+                                <div class="text-gray-400 mt-1 hidden md:block">Playstation 5</div>
+                                <p class="mt-6 text-gray-400">
+                                    {{ $game['summary'] }}
+                                </p>
                             </div>
                         </div>
-                        <div class="ml-0 md:ml-12">
-                            <a href="#" class="block text-lg font-semibold leading-tight hover:text-gray-400 mt-6">
-                                Demon's Souls
-                            </a>
-                            <div class="text-gray-400 mt-1 hidden md:block">Playstation 5</div>
-                            <p class="mt-6 text-gray-400">
-                                A full remake of Demon's Souls (2009) featuring improved graphics and animations, sound and lighting tweaks and a reimagining of many of the visual, musical and mechanical aspects of the original game.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="game bg-gray-800 rounded-lg shadow-md flex flex-col md:flex-row items-start px-6 py-6">
-                        <div class="relative flex-none">
-                            <a href="#">
-                                <img
-                                    src="{{ asset('watchdogs.jpg') }}"
-                                    alt="game cover"
-                                    class="w-48 rounded-xl hover:opacity-75 transition ease-in-out duration-100"
-                                />
-                            </a>
-                            <div class="absolute w-16 h-16 bg-gray-900 rounded-full" style="bottom: -20px;right: -20px;">
-                                <div class="font-semibold text-xs flex justify-center items-center h-full">81%</div>
-                            </div>
-                        </div>
-                        <div class="ml-0 md:ml-12">
-                            <a href="#" class="block text-lg font-semibold leading-tight hover:text-gray-400 mt-6">
-                                Watch Dogs: Legion
-                            </a>
-                            <div class="text-gray-400 mt-1 hidden md:block">
-                                Xbox One, PlayStation 4, PlayStation 5, PC (Microsoft Windows), Google Stadia, Xbox Series
-                            </div>
-                            <p class="mt-6 text-gray-400">
-                                In Watch Dogs: Legion, near future London is facing its downfall...unless you do something about it. Build a resistance, fight back, and give the city back to the people. It’s time to rise up.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="game bg-gray-800 rounded-lg shadow-md flex flex-col md:flex-row items-start px-6 py-6">
-                        <div class="relative flex-none">
-                            <a href="#">
-                                <img
-                                    src="{{ asset('immortals.jpg') }}"
-                                    alt="game cover"
-                                    class="w-48 rounded-xl hover:opacity-75 transition ease-in-out duration-100"
-                                />
-                            </a>
-                            <div class="absolute w-16 h-16 bg-gray-900 rounded-full" style="bottom: -20px;right: -20px;">
-                                <div class="font-semibold text-xs flex justify-center items-center h-full">68%</div>
-                            </div>
-                        </div>
-                        <div class="ml-0 md:ml-12">
-                            <a href="#" class="block text-lg font-semibold leading-tight hover:text-gray-400 mt-6">
-                                Immortals: Fenyx Rising
-                            </a>
-                            <div class="text-gray-400 mt-1 hidden md:block">
-                                Xbox One, PlayStation 4, PlayStation 5, PC (Microsoft Windows), Nintendo Switch, Google Stadia, Xbox Series
-                            </div>
-                            <p class="mt-6 text-gray-400">
-                                From the creators of Assassin’s Creed Odyssey comes a storybook adventure about a forgotten hero on a quest to save the Greek gods.
-
-                                Embark on a journey to the Isle of the Blessed, taken over by dangerous creatures of mythology.
-                            </p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             {{--End recently viewed--}}
