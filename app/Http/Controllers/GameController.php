@@ -26,7 +26,6 @@ class GameController extends Controller
             ]
         );*/
         $before = now()->subMonths(2)->timestamp;
-        $after = now()->addMonths(2)->timestamp;
         $current = now()->timestamp;
         $afterFourMonths = now()->addMonths(4)->timestamp;
         $nextMonth = now()->addMonth()->timestamp;
@@ -37,14 +36,6 @@ class GameController extends Controller
         ])
             ->withBody(
                 "
-                    query games \"popular\" {
-                        fields name, cover.url, first_release_date, total_rating_count, platforms.abbreviation, rating, slug;
-                        where platforms = (48,49,130,6)
-                            & total_rating_count > 5
-                            & (first_release_date >= ${before} & first_release_date < ${after});
-                        sort total_rating_count desc;
-                        limit 12;
-                    };
                     query games \"reviewed\" {
                         fields name, cover.url, first_release_date, rating_count, platforms.abbreviation, rating, summary, slug, storyline;
                         where platforms = (48,49,130,6)
@@ -72,7 +63,6 @@ class GameController extends Controller
             ->json();
 
         return view('index', [
-            'popularGames' => collect($multiQuery)->filter(fn($res) => $res['name'] === 'popular')->first()['result'],
             'recentlyReviewed' => collect($multiQuery)->filter(fn($res) => $res['name'] === 'reviewed')->first()['result'],
             'mostAnticipated' => collect($multiQuery)->filter(fn($res) => $res['name'] === 'anticipated')->first()['result'],
             'comingSoon' => collect($multiQuery)->filter(fn($res) => $res['name'] === 'soon')->first()['result'],
