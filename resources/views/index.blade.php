@@ -91,7 +91,7 @@
                             <div class="ml-4">
                                 <a href="/games/{{ $game['slug'] }}" class="hover:text-gray-300">{{ $game['name'] }}</a>
                                 <p class="text-gray-400 text-sm mt-1">
-                                    {{ \Carbon\Carbon::parse($game['first_release_date'])->toFormattedDateString() }}
+                                    {{ \Carbon\Carbon::parse($game['first_release_date'])->format('M d, Y') }}
                                 </p>
                             </div>
                         </div>
@@ -112,7 +112,7 @@
                             <div class="ml-4">
                                 <a href="/games/{{ $game['slug'] }}" class="hover:text-gray-300">{{ $game['name'] }}</a>
                                 <p class="text-gray-400 text-sm mt-1">
-                                    {{ \Carbon\Carbon::parse($game['first_release_date'])->toFormattedDateString() }}
+                                    {{ \Carbon\Carbon::parse($game['first_release_date'])->format('M d, Y') }}
                                 </p>
                             </div>
                         </div>
