@@ -4,242 +4,30 @@
     <div class="container mx-auto px-4">
         <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Popular Games</h2>
         <div class="popular-games text-sm grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-6 gap-12 border-b border-gray-800 pb-16">
-            <div class="game mt-8 flex md:block flex-col items-center">
-                <div class="relative inline-block">
-                    <a href="#">
-                        <img
-                            src="{{ asset('assasinscreed.jpg') }}"
-                            alt="game cover"
-                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
-                        />
+            @foreach($popularGames as $game)
+                <div class="game mt-8 flex md:block flex-col items-center">
+                    <div class="relative inline-block">
+                        <a href="#">
+                            <img
+                                src="{{ str_replace('thumb', 'cover_big', $game['cover']['url']) }}"
+                                alt="game cover"
+                                class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
+                            />
+                        </a>
+                        <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
+                            <div class="font-semibold text-xs flex justify-center items-center h-full">
+                                {{ isset($game['rating']) ? round($game['rating'], 1) . '%' : 'NA' }}
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
+                        {{ $game['name'] }}
                     </a>
-                    <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
-                        <div class="font-semibold text-xs flex justify-center items-center h-full">85%</div>
+                    <div class="text-gray-400 mt-1 text-center md:text-left">
+                        {{ collect(collect($game['platforms'])->pluck('abbreviation'))->join(", ") }}
                     </div>
                 </div>
-                <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
-                    Assassin's Creed: Valhalla
-                </a>
-                <div class="text-gray-400 mt-1 text-center md:text-left">
-                    Xbox One, PlayStation 4, PC (Microsoft Windows), Nintendo Switch
-                </div>
-            </div>
-            <div class="game mt-8 flex md:block flex-col items-center">
-                <div class="relative inline-block">
-                    <a href="#">
-                        <img
-                            src="{{ asset('starwars.jpg') }}"
-                            alt="game cover"
-                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
-                        />
-                    </a>
-                    <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
-                        <div class="font-semibold text-xs flex justify-center items-center h-full">81%</div>
-                    </div>
-                </div>
-                <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
-                    Star Wars: Squadrons
-                </a>
-                <div class="text-gray-400 mt-1 text-center md:text-left">
-                    Xbox One, PlayStation 4, PlayStation 5, PC (Microsoft Windows), Nintendo Switch, Xbox Series
-                </div>
-            </div>
-            <div class="game mt-8 flex md:block flex-col items-center">
-                <div class="relative inline-block">
-                    <a href="#">
-                        <img
-                            src="{{ asset('spiderman.jpg') }}"
-                            alt="game cover"
-                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
-                        />
-                    </a>
-                    <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
-                        <div class="font-semibold text-xs flex justify-center items-center h-full">88%</div>
-                    </div>
-                </div>
-                <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
-                    Spider-Man: Miles Morales
-                </a>
-                <div class="text-gray-400 mt-1 text-center md:text-left">
-                    Playstation 4, Playstation 5
-                </div>
-            </div>
-            <div class="game mt-8 flex md:block flex-col items-center">
-                <div class="relative inline-block">
-                    <a href="#">
-                        <img
-                            src="{{ asset('watchdogs.jpg') }}"
-                            alt="game cover"
-                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
-                        />
-                    </a>
-                    <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
-                        <div class="font-semibold text-xs flex justify-center items-center h-full">81%</div>
-                    </div>
-                </div>
-                <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
-                    Watch Dogs: Legion
-                </a>
-                <div class="text-gray-400 mt-1 text-center md:text-left">
-                    Xbox One, PlayStation 4, PlayStation 5, PC (Microsoft Windows), Google Stadia, Xbox Series
-                </div>
-            </div>
-            <div class="game mt-8 flex md:block flex-col items-center">
-                <div class="relative inline-block">
-                    <a href="#">
-                        <img
-                            src="{{ asset('hyrule.jpg') }}"
-                            alt="game cover"
-                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
-                        />
-                    </a>
-                    <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
-                        <div class="font-semibold text-xs flex justify-center items-center h-full">82%</div>
-                    </div>
-                </div>
-                <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
-                    Hyrule Warriors: Age of Calamity
-                </a>
-                <div class="text-gray-400 mt-1 text-center md:text-left">Nintendo Switch</div>
-            </div>
-            <div class="game mt-8 flex md:block flex-col items-center">
-                <div class="relative inline-block">
-                    <a href="#">
-                        <img
-                            src="{{ asset('mirror.jpg') }}"
-                            alt="game cover"
-                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
-                        />
-                    </a>
-                    <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
-                        <div class="font-semibold text-xs flex justify-center items-center h-full">55%</div>
-                    </div>
-                </div>
-                <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
-                    Twin Mirror
-                </a>
-                <div class="text-gray-400 mt-1 text-center md:text-left">
-                    Xbox One, PlayStation 4, PC (Microsoft Windows)
-                </div>
-            </div>
-            <div class="game mt-8 flex md:block flex-col items-center">
-                <div class="relative inline-block">
-                    <a href="#">
-                        <img
-                            src="{{ asset('cyberpunk.jpg') }}"
-                            alt="game cover"
-                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
-                        />
-                    </a>
-                    <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
-                        <div class="font-semibold text-xs flex justify-center items-center h-full">77%</div>
-                    </div>
-                </div>
-                <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
-                    Cyber Punk 2077
-                </a>
-                <div class="text-gray-400 mt-1 text-center md:text-left">
-                    Xbox One, PlayStation 4, PlayStation 5, PC (Microsoft Windows), Google Stadia, Xbox Series
-                </div>
-            </div>
-            <div class="game mt-8 flex md:block flex-col items-center">
-                <div class="relative inline-block">
-                    <a href="#">
-                        <img
-                            src="{{ asset('ghostrunner.jpg') }}"
-                            alt="game cover"
-                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
-                        />
-                    </a>
-                    <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
-                        <div class="font-semibold text-xs flex justify-center items-center h-full">82%</div>
-                    </div>
-                </div>
-                <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
-                    Ghost Runner
-                </a>
-                <div class="text-gray-400 mt-1 text-center md:text-left">
-                    Xbox One, PlayStation 4, PC (Microsoft Windows), Nintendo Switch
-                </div>
-            </div>
-            <div class="game mt-8 flex md:block flex-col items-center">
-                <div class="relative inline-block">
-                    <a href="#">
-                        <img
-                            src="{{ asset('empire.jpg') }}"
-                            alt="game cover"
-                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
-                        />
-                    </a>
-                    <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
-                        <div class="font-semibold text-xs flex justify-center items-center h-full">58%</div>
-                    </div>
-                </div>
-                <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
-                    Empire of Sin
-                </a>
-                <div class="text-gray-400 mt-1 text-center md:text-left">
-                    Xbox One, PlayStation 4, Mac, PC (Microsoft Windows), Nintendo Switch
-                </div>
-            </div>
-            <div class="game mt-8 flex md:block flex-col items-center">
-                <div class="relative inline-block">
-                    <a href="#">
-                        <img
-                            src="{{ asset('fifa.jpg') }}"
-                            alt="game cover"
-                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
-                        />
-                    </a>
-                    <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
-                        <div class="font-semibold text-xs flex justify-center items-center h-full">71%</div>
-                    </div>
-                </div>
-                <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
-                    Fifa 21
-                </a>
-                <div class="text-gray-400 mt-1 text-center md:text-left">
-                    Xbox One, PlayStation 4, PC (Microsoft Windows), Stadia
-                </div>
-            </div>
-            <div class="game mt-8 flex md:block flex-col items-center">
-                <div class="relative inline-block">
-                    <a href="#">
-                        <img
-                            src="{{ asset('immortals.jpg') }}"
-                            alt="game cover"
-                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
-                        />
-                    </a>
-                    <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
-                        <div class="font-semibold text-xs flex justify-center items-center h-full">68%</div>
-                    </div>
-                </div>
-                <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
-                    Immortals: Fenyx Rising
-                </a>
-                <div class="text-gray-400 mt-1 text-center md:text-left">
-                    Xbox One, PlayStation 4, PlayStation 5, PC (Microsoft Windows), Nintendo Switch, Google Stadia, Xbox Series
-                </div>
-            </div>
-            <div class="game mt-8 flex md:block flex-col items-center">
-                <div class="relative inline-block">
-                    <a href="#">
-                        <img
-                            src="{{ asset('demon.jpg') }}"
-                            alt="game cover"
-                            class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
-                        />
-                    </a>
-                    <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
-                        <div class="font-semibold text-xs flex justify-center items-center h-full">93%</div>
-                    </div>
-                </div>
-                <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
-                    Demon's Souls
-                </a>
-                <div class="text-gray-400 mt-1 text-center md:text-left">Playstation 5</div>
-            </div>
+            @endforeach
         </div>
         {{--End popular games--}}
         <div class="flex flex-col lg:flex-row my-10">
