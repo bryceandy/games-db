@@ -7,7 +7,7 @@
                 <img src="{{ asset('cyberpunk.jpg') }}" alt="cover" class="rounded-2xl" />
             </div>
             <div class="lg:ml-12 lg:mr-36">
-                <h2 class="font-semibold text-4xl mt-4 lg:mt-0">Cyberpunk</h2>
+                <h2 class="font-semibold text-4xl mt-4 lg:mt-0 leading-tight mt-1">Cyberpunk</h2>
                 <div class="text-gray-400 mt-4 sm:mt-0">
                     <span>Adventure, RPG</span>
                     &middot;
