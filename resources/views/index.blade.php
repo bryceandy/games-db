@@ -7,7 +7,7 @@
             @foreach($popularGames as $game)
                 <div class="game mt-8 flex md:block flex-col items-center">
                     <div class="relative inline-block">
-                        <a href="#">
+                        <a href="/games/{{ $game['slug'] }}">
                             <img
                                 src="{{ str_replace('thumb', 'cover_big', $game['cover']['url']) }}"
                                 alt="game cover"
@@ -20,7 +20,10 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
+                    <a
+                        href="/games/{{ $game['slug'] }}"
+                        class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8"
+                    >
                         {{ $game['name'] }}
                     </a>
                     <div class="text-gray-400 mt-1 text-center md:text-left">
@@ -37,7 +40,7 @@
                     @foreach($recentlyReviewed as $game)
                         <div class="game bg-gray-800 rounded-lg shadow-md flex flex-col md:flex-row items-start px-6 py-6">
                             <div class="relative flex-none">
-                                <a href="#">
+                                <a href="/games/{{ $game['slug'] }}">
                                     <img
                                         src="{{ str_replace('thumb', 'cover_big', $game['cover']['url']) }}"
                                         alt="game cover"
@@ -51,7 +54,10 @@
                                 </div>
                             </div>
                             <div class="ml-0 md:ml-12">
-                                <a href="#" class="block text-lg font-semibold leading-tight hover:text-gray-400 mt-6">
+                                <a
+                                    href="/games/{{ $game['slug'] }}"
+                                    class="block text-lg font-semibold leading-tight hover:text-gray-400 mt-6"
+                                >
                                     {{ $game['name'] }}
                                 </a>
                                 <div class="text-gray-400 mt-1 hidden md:block">
@@ -71,7 +77,7 @@
                 <div class="most-anticipated-container space-y-10 mt-8">
                     @foreach($mostAnticipated as $game)
                         <div class="game flex">
-                            <a href="#">
+                            <a href="/games/{{ $game['slug'] }}">
                                 <img
                                     src="{{ $game['cover']['url'] }}"
                                     alt="game cover"
@@ -79,7 +85,7 @@
                                 />
                             </a>
                             <div class="ml-4">
-                                <a href="#" class="hover:text-gray-300">{{ $game['name'] }}</a>
+                                <a href="/games/{{ $game['slug'] }}" class="hover:text-gray-300">{{ $game['name'] }}</a>
                                 <p class="text-gray-400 text-sm mt-1">
                                     {{ \Carbon\Carbon::parse($game['first_release_date'])->toFormattedDateString() }}
                                 </p>
@@ -92,7 +98,7 @@
                 <div class="coming-soon-container space-y-10 mt-8">
                     @foreach($comingSoon as $game)
                         <div class="game flex">
-                            <a href="#">
+                            <a href="/games/{{ $game['slug'] }}">
                                 <img
                                     src="{{ $game['cover']['url'] }}"
                                     alt="game cover"
@@ -100,7 +106,7 @@
                                 />
                             </a>
                             <div class="ml-4">
-                                <a href="#" class="hover:text-gray-300">{{ $game['name'] }}</a>
+                                <a href="/games/{{ $game['slug'] }}" class="hover:text-gray-300">{{ $game['name'] }}</a>
                                 <p class="text-gray-400 text-sm mt-1">
                                     {{ \Carbon\Carbon::parse($game['first_release_date'])->toFormattedDateString() }}
                                 </p>
