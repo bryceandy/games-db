@@ -53,7 +53,7 @@ class GameController extends Controller
         ])
             ->withBody(
                 "
-                    fields name, cover.url, first_release_date, rating_count, platforms.abbreviation, rating, slug, summary;
+                    fields name, cover.url, first_release_date, rating_count, platforms.abbreviation, rating, summary, slug, storyline;
                     where platforms = (48,49,130,6)
                         & rating_count > 5
                         & (first_release_date >= ${before} & first_release_date < ${current});

@@ -56,7 +56,7 @@
                                 </a>
                                 <div class="text-gray-400 mt-1 hidden md:block">Playstation 5</div>
                                 <p class="mt-6 text-gray-400">
-                                    {{ $game['summary'] }}
+                                    {{ $game['storyline'] ?? $game['summary'] }}
                                 </p>
                             </div>
                         </div>
