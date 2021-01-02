@@ -54,7 +54,9 @@
                                 <a href="#" class="block text-lg font-semibold leading-tight hover:text-gray-400 mt-6">
                                     {{ $game['name'] }}
                                 </a>
-                                <div class="text-gray-400 mt-1 hidden md:block">Playstation 5</div>
+                                <div class="text-gray-400 mt-1 hidden md:block">
+                                    {{ collect(collect($game['platforms'])->pluck('abbreviation'))->join(", ") }}
+                                </div>
                                 <p class="mt-6 text-gray-400">
                                     {{ $game['storyline'] ?? $game['summary'] }}
                                 </p>
