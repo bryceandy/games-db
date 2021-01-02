@@ -8,6 +8,7 @@
     <title>Video Games</title>
 
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <livewire:styles/>
 </head>
 <body class="bg-gray-900 text-white">
     <header class="border-b border-gray-800">
@@ -67,5 +68,6 @@
             Powered by <a href="https://www.igdb.com" class="underline hover:text-gray-400">IGDB</a>
         </div>
     </footer>
+    <livewire:scripts/>
 </body>
 </html>
