@@ -31,78 +31,52 @@ class GameController extends Controller
         $afterFourMonths = now()->addMonths(4)->timestamp;
         $nextMonth = now()->addMonth()->timestamp;
 
-        $popularGames = Http::withHeaders([
+        $multiQuery = Http::withHeaders([
             'Client-ID' => config('igdb.credentials.client_id'),
             'Authorization' => "Bearer dtzj0cl1wqhisdiz8z9glxfko0uu1p",
         ])
             ->withBody(
                 "
-                    fields name, cover.url, first_release_date, total_rating_count, platforms.abbreviation, rating, slug;
-                    where platforms = (48,49,130,6)
-                        & total_rating_count > 5
-                        & (first_release_date >= ${before} & first_release_date < ${after});
-                    sort total_rating_count desc;
-                    limit 12;
+                    query games \"popular\" {
+                        fields name, cover.url, first_release_date, total_rating_count, platforms.abbreviation, rating, slug;
+                        where platforms = (48,49,130,6)
+                            & total_rating_count > 5
+                            & (first_release_date >= ${before} & first_release_date < ${after});
+                        sort total_rating_count desc;
+                        limit 12;
+                    };
+                    query games \"reviewed\" {
+                        fields name, cover.url, first_release_date, rating_count, platforms.abbreviation, rating, summary, slug, storyline;
+                        where platforms = (48,49,130,6)
+                            & rating_count > 5
+                            & (first_release_date >= ${before} & first_release_date < ${current});
+                        limit 3;
+                    };
+                    query games \"anticipated\" {
+                        fields name, cover.url, first_release_date, rating_count, platforms.abbreviation, rating, slug;
+                        where platforms = (48,49,130,6)
+                            & (first_release_date >= ${current} & first_release_date < ${afterFourMonths});
+                        limit 4;
+                    };
+                    query games \"soon\" {
+                        fields name, cover.url, first_release_date, rating_count, platforms.abbreviation, rating, slug;
+                        where platforms = (48,49,130,6)
+                            & (first_release_date >= ${current} & first_release_date < ${nextMonth});
+                        sort first_release_date asc;
+                        limit 4;
+                    };
                 ",
                 'text/plain'
             )
-            ->post(config('igdb.base_url') . 'games')
+            ->post(config('igdb.base_url') . 'multiquery')
             ->json();
 
-        $recentlyReviewed = Http::withHeaders([
-            'Client-ID' => config('igdb.credentials.client_id'),
-            'Authorization' => "Bearer dtzj0cl1wqhisdiz8z9glxfko0uu1p",
-        ])
-            ->withBody(
-                "
-                    fields name, cover.url, first_release_date, rating_count, platforms.abbreviation, rating, summary, slug, storyline;
-                    where platforms = (48,49,130,6)
-                        & rating_count > 5
-                        & (first_release_date >= ${before} & first_release_date < ${current});
-                    limit 3;
-                ",
-                'text/plain'
-            )
-            ->post(config('igdb.base_url') . 'games')
-            ->json();
-
-        $mostAnticipated = Http::withHeaders([
-            'Client-ID' => config('igdb.credentials.client_id'),
-            'Authorization' => "Bearer dtzj0cl1wqhisdiz8z9glxfko0uu1p",
-        ])
-            ->withBody(
-                "
-                    fields name, cover.url, first_release_date, rating_count, platforms.abbreviation, rating, slug;
-                    where platforms = (48,49,130,6)
-                        & (first_release_date >= ${current} & first_release_date < ${afterFourMonths});
-                    limit 4;
-                ",
-                'text/plain'
-            )
-            ->post(config('igdb.base_url') . 'games')
-            ->json();
-
-        $comingSoon = Http::withHeaders([
-            'Client-ID' => config('igdb.credentials.client_id'),
-            'Authorization' => "Bearer dtzj0cl1wqhisdiz8z9glxfko0uu1p",
-        ])
-            ->withBody(
-                "
-                    fields name, cover.url, first_release_date, rating_count, platforms.abbreviation, rating, slug;
-                    where platforms = (48,49,130,6)
-                        & (first_release_date >= ${current} & first_release_date < ${nextMonth});
-                    sort first_release_date asc;
-                    limit 4;
-                ",
-                'text/plain'
-            )
-            ->post(config('igdb.base_url') . 'games')
-            ->json();
-
-        return view(
-            'index',
-            compact('popularGames', 'recentlyReviewed', 'mostAnticipated', 'comingSoon')
-        );
+        return view('index', [
+            'popularGames' => collect($multiQuery)->filter(fn($res) => $res['name'] === 'popular')->first()['result'],
+            'recentlyReviewed' => collect($multiQuery)->filter(fn($res) => $res['name'] === 'reviewed')->first()['result'],
+            'mostAnticipated' => collect($multiQuery)->filter(fn($res) => $res['name'] === 'anticipated')->first()['result'],
+            'comingSoon' => collect($multiQuery)->filter(fn($res) => $res['name'] === 'soon')->first()['result'],
+        ]);
     }
 
     /**
