@@ -2,13 +2,13 @@
 
 @section('content')
     <div class="container mx-auto px-4">
-        <div class="game-details border-b border-gray-800 pb-12 flex">
-            <div class="flex-none">
+        <div class="game-details border-b border-gray-800 pb-12 flex flex-col lg:flex-row">
+            <div class="flex md:flex-none flex-col items-center">
                 <img src="{{ asset('cyberpunk.jpg') }}" alt="cover" class="rounded-2xl" />
             </div>
-            <div class="ml-12 mr-36">
-                <h2 class="font-semibold text-4xl">Cyberpunk</h2>
-                <div class="text-gray-400">
+            <div class="lg:ml-12 lg:mr-36">
+                <h2 class="font-semibold text-4xl mt-4 lg:mt-0">Cyberpunk</h2>
+                <div class="text-gray-400 mt-4 sm:mt-0">
                     <span>Adventure, RPG</span>
                     &middot;
                     <span>Square Enix</span>
@@ -30,7 +30,7 @@
                         </div>
                         <div class="ml-4 text-xs">Critic <br>Score</div>
                     </div>
-                    <div class="socials flex items-center space-x-4 ml-12">
+                    <div class="socials flex items-center space-x-4 ml-12 mt-4 sm:mt-0">
                         <div class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center">
                             <a href="#" class="hover:text-gray-400">
                                 <svg class="w-5 h-5 fill-current" viewBox="0 0 16 17" fill="none">
@@ -85,7 +85,7 @@
         {{--End game details--}}
         <div class="images-container border-b border-gray-800 pb-12 mt-8">
             <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Screenshots</h2>
-            <div class="grid grid-cols-3 gap-12 mt-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-8">
                 <div>
                     <a href="#">
                         <img
