@@ -69,114 +69,44 @@
             <div class="most-anticipated-coming-soon mt-12 lg:mt-0 w-full md:w-1/4">
                 <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Most Anticipated</h2>
                 <div class="most-anticipated-container space-y-10 mt-8">
-                    <div class="game flex">
-                        <a href="#">
-                            <img
-                                src="{{ asset('biomutant.jpg') }}"
-                                alt="game cover"
-                                class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
-                            />
-                        </a>
-                        <div class="ml-4">
-                            <a href="#" class="hover:text-gray-300">Biomutant</a>
-                            <p class="text-gray-400 text-sm mt-1">Sept 20, 2021</p>
+                    @foreach($mostAnticipated as $game)
+                        <div class="game flex">
+                            <a href="#">
+                                <img
+                                    src="{{ $game['cover']['url'] }}"
+                                    alt="game cover"
+                                    class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
+                                />
+                            </a>
+                            <div class="ml-4">
+                                <a href="#" class="hover:text-gray-300">{{ $game['name'] }}</a>
+                                <p class="text-gray-400 text-sm mt-1">
+                                    {{ \Carbon\Carbon::parse($game['first_release_date'])->toFormattedDateString() }}
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="game flex">
-                        <a href="#">
-                            <img
-                                src="{{ asset('halo.jpg') }}"
-                                alt="game cover"
-                                class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
-                            />
-                        </a>
-                        <div class="ml-4">
-                            <a href="#" class="hover:text-gray-300">Halo Infinite</a>
-                            <p class="text-gray-400 text-sm mt-1">Oct, 2021</p>
-                        </div>
-                    </div>
-                    <div class="game flex">
-                        <a href="#">
-                            <img
-                                src="{{ asset('horizon.jpg') }}"
-                                alt="game cover"
-                                class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
-                            />
-                        </a>
-                        <div class="ml-4">
-                            <a href="#" class="hover:text-gray-300">Horizon Forbidden West</a>
-                            <p class="text-gray-400 text-sm mt-1">Dec, 2021</p>
-                        </div>
-                    </div>
-                    <div class="game flex">
-                        <a href="#">
-                            <img
-                                src="{{ asset('vampire.jpg') }}"
-                                alt="game cover"
-                                class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
-                            />
-                        </a>
-                        <div class="ml-4">
-                            <a href="#" class="hover:text-gray-300">Vampire: The Masquerade</a>
-                            <p class="text-gray-400 text-sm mt-1">March, 2021</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 {{--End most anticipated--}}
                 <h2 class="text-blue-500 uppercase tracking-wide font-semibold mt-10">Coming Soon</h2>
                 <div class="coming-soon-container space-y-10 mt-8">
-                    <div class="game flex">
-                        <a href="#">
-                            <img
-                                src="{{ asset('biomutant.jpg') }}"
-                                alt="game cover"
-                                class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
-                            />
-                        </a>
-                        <div class="ml-4">
-                            <a href="#" class="hover:text-gray-300">Biomutant</a>
-                            <p class="text-gray-400 text-sm mt-1">Sept 20, 2021</p>
+                    @foreach($comingSoon as $game)
+                        <div class="game flex">
+                            <a href="#">
+                                <img
+                                    src="{{ $game['cover']['url'] }}"
+                                    alt="game cover"
+                                    class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
+                                />
+                            </a>
+                            <div class="ml-4">
+                                <a href="#" class="hover:text-gray-300">{{ $game['name'] }}</a>
+                                <p class="text-gray-400 text-sm mt-1">
+                                    {{ \Carbon\Carbon::parse($game['first_release_date'])->toFormattedDateString() }}
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="game flex">
-                        <a href="#">
-                            <img
-                                src="{{ asset('halo.jpg') }}"
-                                alt="game cover"
-                                class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
-                            />
-                        </a>
-                        <div class="ml-4">
-                            <a href="#" class="hover:text-gray-300">Halo Infinite</a>
-                            <p class="text-gray-400 text-sm mt-1">Oct, 2021</p>
-                        </div>
-                    </div>
-                    <div class="game flex">
-                        <a href="#">
-                            <img
-                                src="{{ asset('horizon.jpg') }}"
-                                alt="game cover"
-                                class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
-                            />
-                        </a>
-                        <div class="ml-4">
-                            <a href="#" class="hover:text-gray-300">Horizon Forbidden West</a>
-                            <p class="text-gray-400 text-sm mt-1">Dec, 2021</p>
-                        </div>
-                    </div>
-                    <div class="game flex">
-                        <a href="#">
-                            <img
-                                src="{{ asset('vampire.jpg') }}"
-                                alt="game cover"
-                                class="w-16 rounded-lg hover:opacity-75 transition ease-in-out duration-100"
-                            />
-                        </a>
-                        <div class="ml-4">
-                            <a href="#" class="hover:text-gray-300">Vampire: The Masquerade</a>
-                            <p class="text-gray-400 text-sm mt-1">March, 2021</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 {{--End coming soon--}}
             </div>

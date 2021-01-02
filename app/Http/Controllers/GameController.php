@@ -28,6 +28,8 @@ class GameController extends Controller
         $before = now()->subMonths(2)->timestamp;
         $after = now()->addMonths(2)->timestamp;
         $current = now()->timestamp;
+        $afterFourMonths = now()->addMonths(4)->timestamp;
+        $nextMonth = now()->addMonth()->timestamp;
 
         $popularGames = Http::withHeaders([
             'Client-ID' => config('igdb.credentials.client_id'),
@@ -64,7 +66,42 @@ class GameController extends Controller
             ->post(config('igdb.base_url') . 'games')
             ->json();
 
-        return view('index', compact('popularGames', 'recentlyReviewed'));
+        $mostAnticipated = Http::withHeaders([
+            'Client-ID' => config('igdb.credentials.client_id'),
+            'Authorization' => "Bearer dtzj0cl1wqhisdiz8z9glxfko0uu1p",
+        ])
+            ->withBody(
+                "
+                    fields name, cover.url, first_release_date, rating_count, platforms.abbreviation, rating, slug;
+                    where platforms = (48,49,130,6)
+                        & (first_release_date >= ${current} & first_release_date < ${afterFourMonths});
+                    limit 4;
+                ",
+                'text/plain'
+            )
+            ->post(config('igdb.base_url') . 'games')
+            ->json();
+
+        $comingSoon = Http::withHeaders([
+            'Client-ID' => config('igdb.credentials.client_id'),
+            'Authorization' => "Bearer dtzj0cl1wqhisdiz8z9glxfko0uu1p",
+        ])
+            ->withBody(
+                "
+                    fields name, cover.url, first_release_date, rating_count, platforms.abbreviation, rating, slug;
+                    where platforms = (48,49,130,6)
+                        & (first_release_date >= ${current} & first_release_date < ${nextMonth});
+                    limit 4;
+                ",
+                'text/plain'
+            )
+            ->post(config('igdb.base_url') . 'games')
+            ->json();
+
+        return view(
+            'index',
+            compact('popularGames', 'recentlyReviewed', 'mostAnticipated', 'comingSoon')
+        );
     }
 
     /**
