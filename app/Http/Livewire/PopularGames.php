@@ -12,7 +12,7 @@ class PopularGames extends Component
 {
     public array $popularGames = [];
 
-    public function loadPopularGames(): void
+    public function loadGames(): void
     {
         $before = now()->subMonths(2)->timestamp;
         $after = now()->addMonths(2)->timestamp;
