@@ -29,15 +29,14 @@
             </div>
         </div>
         @empty
-        <div class="container mt-8 mx-auto">
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-                class="animate-spin w-5 h-5 fill-current">
-                <path
-                    d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
-                />
-            </svg>
-        </div>
+            @foreach(range(1, 12) as $game)
+                <div class="game mt-8 flex md:block flex-col items-center animate-pulse">
+                    <div class="relative inline-block">
+                        <div class="bg-gray-800 w-40 h-56 rounded-xl"></div>
+                    </div>
+                    <div class="block mt-4 h-4 bg-gray-800 rounded"></div>
+                    <div class="block mt-1 w-3/4 h-4 bg-gray-800 rounded"></div>
+                </div>
+            @endforeach
     @endforelse
 </div>
