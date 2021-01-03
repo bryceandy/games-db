@@ -5,7 +5,7 @@
     @forelse($popularGames as $game)
         <div class="game mt-8 flex md:block flex-col items-center">
             <div class="relative inline-block">
-                <a href="/games/{{ $game['slug'] }}">
+                <a href="{{ route('games.show', $game['slug']) }}">
                     <img
                         src="{{ str_replace('thumb', 'cover_big', $game['cover']['url']) }}"
                         alt="game cover"
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <a
-                href="/games/{{ $game['slug'] }}"
+                href="{{ route('games.show', $game['slug']) }}"
                 class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8"
             >
                 {{ $game['name'] }}

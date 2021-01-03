@@ -7,7 +7,7 @@
             class="game bg-gray-800 rounded-lg shadow-md flex flex-col md:flex-row items-start px-6 py-6"
         >
             <div class="relative flex-none">
-                <a href="/games/{{ $game['slug'] }}">
+                <a href="{{ route('games.show', $game['slug']) }}">
                     <img
                         src="{{ str_replace('thumb', 'cover_big', $game['cover']['url']) }}"
                         alt="game cover"
@@ -22,7 +22,7 @@
             </div>
             <div class="ml-0 md:ml-12">
                 <a
-                    href="/games/{{ $game['slug'] }}"
+                    href="{{ route('games.show', $game['slug']) }}"
                     class="block text-lg font-semibold leading-tight hover:text-gray-400 mt-6"
                 >
                     {{ $game['name'] }}
