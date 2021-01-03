@@ -25,31 +25,7 @@ class GameController extends Controller
                 'grant_type' => 'client_credentials',
             ]
         );*/
-        $current = now()->timestamp;
-        $nextMonth = now()->addMonth()->timestamp;
-
-        $multiQuery = Http::withHeaders([
-            'Client-ID' => config('igdb.credentials.client_id'),
-            'Authorization' => "Bearer dtzj0cl1wqhisdiz8z9glxfko0uu1p",
-        ])
-            ->withBody(
-                "
-                    query games \"soon\" {
-                        fields name, cover.url, first_release_date, rating_count, platforms.abbreviation, rating, slug;
-                        where platforms = (48,49,130,6)
-                            & (first_release_date >= ${current} & first_release_date < ${nextMonth});
-                        sort first_release_date asc;
-                        limit 4;
-                    };
-                ",
-                'text/plain'
-            )
-            ->post(config('igdb.base_url') . 'multiquery')
-            ->json();
-
-        return view('index', [
-            'comingSoon' => collect($multiQuery)->filter(fn($res) => $res['name'] === 'soon')->first()['result'],
-        ]);
+        return view('index');
     }
 
     /**
