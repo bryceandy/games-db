@@ -4,13 +4,11 @@
     <div class="container mx-auto px-4">
         <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Popular Games</h2>
         <livewire:popular-games />
-        {{--End popular games--}}
         <div class="flex flex-col lg:flex-row my-10">
             <div class="recently-reviewed w-full lg:w-3/4 mr-0 lg:mr-32">
                 <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Recently Reviewed</h2>
                 <livewire:recently-reviewed />
             </div>
-            {{--End recently viewed--}}
             <div class="most-anticipated-coming-soon mt-12 lg:mt-0 w-full md:w-1/4">
                 <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Most Anticipated</h2>
                 <div class="most-anticipated-container space-y-10 mt-8">
@@ -32,7 +30,6 @@
                         </div>
                     @endforeach
                 </div>
-                {{--End most anticipated--}}
                 <h2 class="text-blue-500 uppercase tracking-wide font-semibold mt-10">Coming Soon</h2>
                 <div class="coming-soon-container space-y-10 mt-8">
                     @foreach($comingSoon as $game)
@@ -53,7 +50,6 @@
                         </div>
                     @endforeach
                 </div>
-                {{--End coming soon--}}
             </div>
         </div>
     </div>
