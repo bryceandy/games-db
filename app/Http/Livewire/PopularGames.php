@@ -12,8 +12,6 @@ class PopularGames extends Component
 {
     public array $popularGames = [];
 
-    public bool $readyToLoad = false;
-
     public function loadPopularGames(): void
     {
         $before = now()->subMonths(2)->timestamp;
@@ -38,14 +36,11 @@ class PopularGames extends Component
 
         if ($response->successful()) {
             $this->popularGames = $response->json();
-            $this->readyToLoad = true;
         }
     }
 
     public function render(): Factory|View|Application
     {
-        return view('livewire.popular-games', [
-            'popularGames' => $this->popularGames,
-        ]);
+        return view('livewire.popular-games');
     }
 }
