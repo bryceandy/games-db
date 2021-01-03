@@ -34,8 +34,10 @@
                     <div class="relative inline-block">
                         <div class="bg-gray-800 w-40 h-56 rounded-xl"></div>
                     </div>
-                    <div class="block mt-4 h-4 bg-gray-800 rounded"></div>
-                    <div class="block mt-1 w-3/4 h-4 bg-gray-800 rounded"></div>
+                    <div class="block mt-4 h-4 bg-gray-700 rounded-xl"></div>
+                    <div class="block mt-1 h-4 w-3/4 bg-gray-700 rounded-xl text-transparent">
+                        PC, Switch, PS5
+                    </div>
                 </div>
             @endforeach
     @endforelse

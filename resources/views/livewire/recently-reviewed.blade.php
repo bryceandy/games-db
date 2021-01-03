@@ -37,12 +37,20 @@
         </div>
         @empty
         @foreach(range(1, 3) as $game)
-            <div class="game mt-8 flex md:block flex-col items-center animate-pulse">
-                <div class="relative inline-block">
-                    <div class="bg-gray-800 w-40 h-56 rounded-xl"></div>
+            <div class="game bg-gray-800 rounded-lg shadow-md flex flex-col md:flex-row items-start px-6 py-6 animate-pulse">
+                <div class="relative flex-none">
+                    <div class="bg-gray-700 w-32 lg:w-48 h-40 lg:h-56 rounded-xl"></div>
                 </div>
-                <div class="block mt-4 w-1/2 h-4 bg-gray-800 rounded"></div>
-                <div class="block mt-1 w-3/4 h-36 bg-gray-800 rounded"></div>
+                <div class="ml-0 md:ml-12">
+                    <div
+                        class="inline-block text-lg text-transparent rounded-xl font-semibold leading-tight bg-gray-700 mt-6"
+                    >
+                        Title goes here
+                    </div>
+                    <p class="mt-6 bg-gray-700 rounded-xl text-transparent">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid debitis, deleniti ducimus, eaque error eum expedita fugit hic illo itaque laborum neque nulla numquam quae qui reprehenderit tempora temporibus ut voluptatem! Accusantium, dolore eos. Aliquam debitis inventore voluptate voluptates!
+                    </p>
+                </div>
             </div>
         @endforeach
     @endforelse
