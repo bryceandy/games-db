@@ -25,7 +25,7 @@
                 {{ $game['name'] }}
             </a>
             <div class="text-gray-400 mt-1 text-center md:text-left">
-                {{ collect(collect($game['platforms'])->pluck('abbreviation'))->join(", ") }}
+                {{ collect($game['platforms'])->pluck('abbreviation')->join(", ") }}
             </div>
         </div>
         @empty
