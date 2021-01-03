@@ -10,12 +10,16 @@ use Livewire\Component;
 
 class PopularGames extends Component
 {
-    public function render(): Factory|View|Application
+    public array $popularGames = [];
+
+    public bool $readyToLoad = false;
+
+    public function loadPopularGames(): void
     {
         $before = now()->subMonths(2)->timestamp;
         $after = now()->addMonths(2)->timestamp;
 
-        $popularGames = Http::withHeaders([
+        $response = Http::withHeaders([
             'Client-ID' => config('igdb.credentials.client_id'),
             'Authorization' => "Bearer dtzj0cl1wqhisdiz8z9glxfko0uu1p",
         ])
@@ -30,9 +34,18 @@ class PopularGames extends Component
                 ",
                 'text/plain'
             )
-            ->post(config('igdb.base_url') . 'games')
-            ->json();
+            ->post(config('igdb.base_url') . 'games');
 
-        return view('livewire.popular-games', compact('popularGames'));
+        if ($response->successful()) {
+            $this->popularGames = $response->json();
+            $this->readyToLoad = true;
+        }
+    }
+
+    public function render(): Factory|View|Application
+    {
+        return view('livewire.popular-games', [
+            'popularGames' => $this->popularGames,
+        ]);
     }
 }
