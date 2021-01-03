@@ -26,7 +26,6 @@ class GameController extends Controller
             ]
         );*/
         $current = now()->timestamp;
-        $afterFourMonths = now()->addMonths(4)->timestamp;
         $nextMonth = now()->addMonth()->timestamp;
 
         $multiQuery = Http::withHeaders([
@@ -35,12 +34,6 @@ class GameController extends Controller
         ])
             ->withBody(
                 "
-                    query games \"anticipated\" {
-                        fields name, cover.url, first_release_date, rating_count, platforms.abbreviation, rating, slug;
-                        where platforms = (48,49,130,6)
-                            & (first_release_date >= ${current} & first_release_date < ${afterFourMonths});
-                        limit 4;
-                    };
                     query games \"soon\" {
                         fields name, cover.url, first_release_date, rating_count, platforms.abbreviation, rating, slug;
                         where platforms = (48,49,130,6)
@@ -55,7 +48,6 @@ class GameController extends Controller
             ->json();
 
         return view('index', [
-            'mostAnticipated' => collect($multiQuery)->filter(fn($res) => $res['name'] === 'anticipated')->first()['result'],
             'comingSoon' => collect($multiQuery)->filter(fn($res) => $res['name'] === 'soon')->first()['result'],
         ]);
     }
