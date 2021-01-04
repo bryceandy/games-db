@@ -7,6 +7,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Http;
 
 class GameController extends Controller
 {
@@ -57,7 +58,23 @@ class GameController extends Controller
      */
     public function show(string $slug): Factory|View|Application
     {
-        return view('show');
+        $game = Http::withHeaders([
+            'Client-ID' => config('igdb.credentials.client_id'),
+            'Authorization' => "Bearer dtzj0cl1wqhisdiz8z9glxfko0uu1p",
+        ])
+            ->withBody(
+                "
+                    fields *, cover.url, platforms.abbreviation, genres.*, videos.*, game_modes.*, screenshots.*,
+                     similar_games.name, similar_games.cover.url, similar_games.rating,
+                      similar_games.platforms.abbreviation, similar_games.slug, websites.*;
+                    where slug = \"${slug}\";
+                ",
+                'text/plain'
+            )
+            ->post(config('igdb.base_url') . 'games')
+            ->json()[0];
+
+        return view('show', compact('game'));
     }
 
     /**
