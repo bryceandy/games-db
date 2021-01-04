@@ -42,7 +42,7 @@
                         <div class="ml-4 text-xs">Critic <br>Score</div>
                     </div>
                     @isset($game['websites'])
-                        <div class="socials flex items-center space-x-4 ml-12 mt-4 sm:mt-0">
+                        <div class="socials flex items-center space-x-4 sm:ml-12 mt-4 sm:mt-0 w-full sm:w-auto">
                             <div class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center">
                                 <a href="{{ $game['websites'][0]['url'] }}" class="hover:text-gray-400">
                                     <svg class="w-5 h-5 fill-current" viewBox="0 0 16 17" fill="none">
