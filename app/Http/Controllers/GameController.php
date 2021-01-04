@@ -72,9 +72,11 @@ class GameController extends Controller
                 'text/plain'
             )
             ->post(config('igdb.base_url') . 'games')
-            ->json()[0];
+            ->json();
 
-        return view('show', compact('game'));
+        abort_if(! $game, 404);
+
+        return view('show', ['game' => $game[0]]);
     }
 
     /**
