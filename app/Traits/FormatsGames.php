@@ -21,7 +21,8 @@ trait FormatsGames
                     ->map(fn($screenshot) => [
                         'big' => $this->getImageUrl($screenshot, 'screenshot_big'),
                         'huge' => $this->getImageUrl($screenshot, 'screenshot_huge'),
-                    ]),
+                    ])
+                    ->take(9),
                 'similar_games' => $this->formatSimilarGames($game),
                 'trailer' => 'https://youtube.com/watch/' . $game['videos'][0]['video_id'],
             ]))
