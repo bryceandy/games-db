@@ -98,7 +98,10 @@
                 </div>
                 <p class="mt-12">{{ $game['summary'] }}</p>
                 <div class="mt-12">
-                    <button class="flex bg-blue-500 text-white font-semibold px-6 py-3 hover:bg-blue-600 rounded-full transition ease-in-out duration-150">
+                    <a
+                        href="https://youtube.com/watch/{{ $game['videos'][0]['id'] }}"
+                        class="inline-flex bg-blue-500 text-white font-semibold px-6 py-3 hover:bg-blue-600 rounded-full transition ease-in-out duration-150"
+                    >
                         <svg class="w-6 fill-current" viewBox="0 0 24 24">
                             <path d="M0 0h24v24H0z" fill="none" />
                             <path
@@ -106,7 +109,7 @@
                             />
                         </svg>
                         <span class="ml-2">Play Trailer</span>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
