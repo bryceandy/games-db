@@ -25,6 +25,7 @@ trait FormatsGames
                     ->take(9),
                 'similar_games' => $this->formatSimilarGames($game),
                 'trailer' => 'https://youtube.com/watch/' . $game['videos'][0]['video_id'],
+                'first_release_date' => $this->getReleaseDate($game),
             ]))
             ->first()
             ->toArray();
