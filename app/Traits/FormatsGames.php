@@ -18,8 +18,7 @@ trait FormatsGames
                 'rating' => $this->getRating($game, 'rating'),
                 'aggregated_rating' => $this->getRating($game, 'aggregated_rating'),
                 'screenshots' => collect($game['screenshots'])
-                    ->map(fn($screenshot) => $this->getImageUrl($screenshot, 'screenshot_huge'))
-                    ->toArray(),
+                    ->map(fn($screenshot) => $this->getImageUrl($screenshot, 'screenshot_huge')),
                 'similar_games' => $this->formatSimilarGames($game),
             ]))
             ->first()
