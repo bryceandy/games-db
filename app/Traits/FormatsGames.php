@@ -85,6 +85,7 @@ trait FormatsGames
                 'rating' => $this->getRating($game, 'rating'),
                 'platforms' => $this->getPlatforms($game),
             ]))
+            ->take(6)
             ->toArray();
     }
 
