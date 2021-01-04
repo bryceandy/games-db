@@ -631,7 +631,7 @@ InterceptorManager.prototype.eject = function eject(id) {
 InterceptorManager.prototype.forEach = function forEach(fn) {
   utils.forEach(this.handlers, function forEachHandler(h) {
     if (h !== null) {
-      fn(h);
+      fn (h);
     }
   });
 };
@@ -993,7 +993,7 @@ var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/util
 module.exports = function transformData(data, headers, fns) {
   /*eslint no-param-reassign:0*/
   utils.forEach(fns, function transform(fn) {
-    data = fn(data, headers);
+    data = fn (data, headers);
   });
 
   return data;

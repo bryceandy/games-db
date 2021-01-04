@@ -10,7 +10,7 @@ trait FormatsGames
     public function singleGame($games): array
     {
         return collect($games)
-            ->map(fn($game) => collect($game)->merge([
+            ->map(fn ($game) => collect($game)->merge([
                 'cover_url' => $this->getImageUrl($game, 'cover_big', 'cover'),
                 'genres' => collect($game['genres'])->pluck('name')->join(", "),
                 'company_names' => $this->getCompanyNames($game),
@@ -18,7 +18,7 @@ trait FormatsGames
                 'rating' => $this->getRating($game, 'rating'),
                 'aggregated_rating' => $this->getRating($game, 'aggregated_rating'),
                 'screenshots' => collect($game['screenshots'])
-                    ->map(fn($screenshot) => [
+                    ->map(fn ($screenshot) => [
                         'big' => $this->getImageUrl($screenshot, 'screenshot_big'),
                         'huge' => $this->getImageUrl($screenshot, 'screenshot_huge'),
                     ])
@@ -33,7 +33,7 @@ trait FormatsGames
     public function bigCoverGames($games): array
     {
         return collect($games)
-            ->map(fn($game) => collect($game)->merge([
+            ->map(fn ($game) => collect($game)->merge([
                 'cover_url' => $this->getImageUrl($game, 'cover_big', 'cover'),
                 'rating' => $this->getRating($game, 'rating'),
                 'platforms' => $this->getPlatforms($game),
@@ -44,7 +44,7 @@ trait FormatsGames
     public function smallCoverGames($games): array
     {
         return collect($games)
-            ->map(fn($game) => collect($game)->merge([
+            ->map(fn ($game) => collect($game)->merge([
                 'cover_url' => $this->getImageUrl($game, 'cover_small', 'cover'),
                 'first_release_date' => $this->getReleaseDate($game),
             ]))
@@ -78,8 +78,8 @@ trait FormatsGames
     private function formatSimilarGames($game): array
     {
         return collect($game['similar_games'])
-            ->filter(fn($item) => isset($item['cover']))
-            ->map(fn($game) => collect($game)->merge([
+            ->filter(fn ($item) => isset($item['cover']))
+            ->map(fn ($game) => collect($game)->merge([
                 'cover_url' => $this->getImageUrl($game, 'cover_big', 'cover'),
                 'rating' => $this->getRating($game, 'rating'),
                 'platforms' => $this->getPlatforms($game),
