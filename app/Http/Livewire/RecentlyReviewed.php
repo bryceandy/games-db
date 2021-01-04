@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Traits\FormatsGames;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -10,6 +11,8 @@ use Livewire\Component;
 
 class RecentlyReviewed extends Component
 {
+    use FormatsGames;
+
     public array $recentlyReviewed = [];
 
     public function render(): Factory|View|Application
@@ -39,16 +42,7 @@ class RecentlyReviewed extends Component
             ->post(config('igdb.base_url') . 'games');
 
         if ($response->successful()) {
-            $this->recentlyReviewed = $this->formatForView($response->json());
+            $this->recentlyReviewed = $this->bigCoverGames($response->json());
         }
-    }
-
-    private function formatForView($games): array
-    {
-        return collect($games)->map(fn($game) => collect($game)->merge([
-            'cover_url' => str_replace('thumb', 'cover_big', $game['cover']['url']),
-            'rating' => isset($game['rating']) ? round($game['rating'], 1) . '%' : 'NA',
-            'platforms' => collect($game['platforms'])->pluck('abbreviation')->join(", "),
-        ]))->toArray();
     }
 }

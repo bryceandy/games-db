@@ -2,11 +2,12 @@
 
 namespace App\Traits;
 
+use Carbon\Carbon;
 use JetBrains\PhpStorm\Pure;
 
 trait FormatsGames
 {
-    public function formatSingleGame($games): array
+    public function singleGame($games): array
     {
         return collect($games)
             ->map(fn($game) => collect($game)->merge([
@@ -23,6 +24,28 @@ trait FormatsGames
             ]))
             ->first()
             ->toArray();
+    }
+
+    public function bigCoverGames($games): array
+    {
+        return collect($games)->map(fn($game) => collect($game)->merge([
+            'cover_url' => $this->getImageUrl($game, 'cover_big', 'cover'),
+            'rating' => $this->getRating($game, 'rating'),
+            'platforms' => $this->getPlatforms($game),
+        ]))->toArray();
+    }
+
+    public function smallCoverGames($games): array
+    {
+        return collect($games)->map(fn($game) => collect($game)->merge([
+            'cover_url' => $this->getImageUrl($game, 'cover_small', 'cover'),
+            'first_release_date' => $this->getReleaseDate($game),
+        ]))->toArray();
+    }
+
+    private function getReleaseDate($game): string
+    {
+        return Carbon::parse($game['first_release_date'])->format('M d, Y');
     }
 
     private function getImageUrl($obj, $uriName, $type = null): array|string

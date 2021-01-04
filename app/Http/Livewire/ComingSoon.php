@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use Carbon\Carbon;
+use App\Traits\FormatsGames;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -11,6 +11,8 @@ use Livewire\Component;
 
 class ComingSoon extends Component
 {
+    use FormatsGames;
+
     public array $comingSoon = [];
 
     public function render(): Factory|View|Application
@@ -40,15 +42,7 @@ class ComingSoon extends Component
             ->post(config('igdb.base_url') . 'games');
 
         if ($response->successful()) {
-            $this->comingSoon = $this->formatForView($response->json());
+            $this->comingSoon = $this->smallCoverGames($response->json());
         }
-    }
-
-    private function formatForView($games): array
-    {
-        return collect($games)->map(fn($game) => collect($game)->merge([
-            'cover_url' => str_replace('thumb', 'cover_small', $game['cover']['url']),
-            'first_release_date' => Carbon::parse($game['first_release_date'])->format('M d, Y'),
-        ]))->toArray();
     }
 }

@@ -79,7 +79,7 @@ class GameController extends Controller
 
         abort_if(! $game, 404);
 
-        return view('show', ['game' => $this->formatSingleGame($game)]);
+        return view('show', ['game' => $this->singleGame($game)]);
     }
 
     /**
