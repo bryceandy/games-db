@@ -12,6 +12,11 @@ class RecentlyReviewed extends Component
 {
     public array $recentlyReviewed = [];
 
+    public function render(): Factory|View|Application
+    {
+        return view('livewire.recently-reviewed');
+    }
+
     public function loadGames()
     {
         $before = now()->subMonths(2)->timestamp;
@@ -34,12 +39,16 @@ class RecentlyReviewed extends Component
             ->post(config('igdb.base_url') . 'games');
 
         if ($response->successful()) {
-            $this->recentlyReviewed = $response->json();
+            $this->recentlyReviewed = $this->formatForView($response->json());
         }
     }
 
-    public function render(): Factory|View|Application
+    private function formatForView($games): array
     {
-        return view('livewire.recently-reviewed');
+        return collect($games)->map(fn($game) => collect($game)->merge([
+            'cover_url' => str_replace('thumb', 'cover_big', $game['cover']['url']),
+            'rating' => isset($game['rating']) ? round($game['rating'], 1) . '%' : 'NA',
+            'platforms' => collect($game['platforms'])->pluck('abbreviation')->join(", "),
+        ]))->toArray();
     }
 }

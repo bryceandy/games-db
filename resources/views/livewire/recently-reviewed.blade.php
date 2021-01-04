@@ -9,14 +9,14 @@
             <div class="relative flex-none">
                 <a href="{{ route('games.show', $game['slug']) }}">
                     <img
-                        src="{{ str_replace('thumb', 'cover_big', $game['cover']['url']) }}"
+                        src="{{ $game['cover_url'] }}"
                         alt="game cover"
                         class="w-48 rounded-xl hover:opacity-75 transition ease-in-out duration-100"
                     />
                 </a>
                 <div class="absolute w-16 h-16 bg-gray-900 rounded-full" style="bottom: -20px;right: -20px;">
                     <div class="font-semibold text-xs flex justify-center items-center h-full">
-                        {{ isset($game['rating']) ? round($game['rating'], 1) . '%' : 'NA' }}
+                        {{ $game['rating'] }}
                     </div>
                 </div>
             </div>
