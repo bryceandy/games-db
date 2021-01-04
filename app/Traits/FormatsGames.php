@@ -20,6 +20,7 @@ trait FormatsGames
                 'screenshots' => collect($game['screenshots'])
                     ->map(fn($screenshot) => $this->getImageUrl($screenshot, 'screenshot_huge')),
                 'similar_games' => $this->formatSimilarGames($game),
+                'trailer' => 'https://youtube.com/watch/' . $game['videos'][0]['video_id'],
             ]))
             ->first()
             ->toArray();

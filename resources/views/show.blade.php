@@ -95,7 +95,7 @@
                 <p class="mt-12">{{ $game['summary'] }}</p>
                 <div class="mt-12">
                     <a
-                        href="https://youtube.com/watch/{{ $game['videos'][0]['video_id'] }}"
+                        href="{{ $game['trailer'] }}"
                         class="inline-flex bg-blue-500 text-white font-semibold px-6 py-3 hover:bg-blue-600 rounded-full transition ease-in-out duration-150"
                     >
                         <svg class="w-6 fill-current" viewBox="0 0 24 24">
