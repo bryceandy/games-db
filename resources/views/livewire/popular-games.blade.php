@@ -3,18 +3,7 @@
     class="popular-games text-sm grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-6 gap-12 border-b border-gray-800 pb-16"
 >
     @forelse($popularGames as $game)
-        <div class="game mt-8 flex md:block flex-col items-center">
-            <x-game-card :game="$game"/>
-            <a
-                href="{{ route('games.show', $game['slug']) }}"
-                class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8"
-            >
-                {{ $game['name'] }}
-            </a>
-            <div class="text-gray-400 mt-1 text-center md:text-left">
-                {{ $game['platforms'] }}
-            </div>
-        </div>
+        <x-game-card :game="$game" />
         @empty
             @foreach(range(1, 12) as $game)
                 <div class="game mt-8 flex md:block flex-col items-center animate-pulse">

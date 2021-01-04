@@ -132,17 +132,7 @@
             <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Similar Games</h2>
             <div class="popular-games text-sm grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-6 gap-12">
                 @foreach($game['similar_games'] as $similar)
-                    <div class="game mt-8 flex md:block flex-col items-center">
-                        <x-game-card :game="$similar"/>
-                        <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
-                            {{ $similar['name'] }}
-                        </a>
-                        @isset($similar['platforms'])
-                            <div class="text-gray-400 mt-1 text-center md:text-left">
-                                {{ $similar['platforms'] }}
-                            </div>
-                        @endisset
-                    </div>
+                    <x-game-card :game="$similar" />
                 @endforeach
             </div>
         </div>
