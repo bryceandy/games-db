@@ -40,7 +40,7 @@ class ComingSoon extends Component
             ->post(config('igdb.base_url') . 'games');
 
         if ($response->successful()) {
-            $this->comingSoon = $response->json();
+            $this->comingSoon = $this->formatForView($response->json());
         }
     }
 
