@@ -30,9 +30,7 @@
                 <div class="text-gray-400 mt-1 hidden md:block">
                     {{ collect($game['platforms'])->pluck('abbreviation')->join(", ") }}
                 </div>
-                <p class="mt-6 text-gray-400">
-                    {{ $game['storyline'] ?? $game['summary'] }}
-                </p>
+                <p class="mt-6 text-gray-400">{{ $game['summary'] }}</p>
             </div>
         </div>
         @empty
