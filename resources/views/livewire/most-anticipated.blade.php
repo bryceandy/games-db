@@ -3,12 +3,7 @@
     class="most-anticipated-container space-y-10 mt-8"
 >
     @forelse($mostAnticipated as $game)
-        <x-game-card-small
-            :route-url="route('games.show', $game['slug'])"
-            :cover-url="$game['cover_url']"
-            :name="$game['name']"
-            :date="$game['first_release_date']"
-        />
+        <x-game-card-small :game="$game"/>
         @empty
             @foreach(range(1, 4) as $game)
                 <div class="game flex animate-pulse">
