@@ -4,32 +4,28 @@
     <div class="container mx-auto px-4">
         <div class="game-details border-b border-gray-800 pb-12 flex flex-col lg:flex-row">
             <div class="flex md:flex-none flex-col items-center">
-                <img
-                    src="{{ str_replace('thumb', 'cover_big', $game['cover']['url']) }}"
-                    alt="cover"
-                    class="rounded-2xl"
-                />
+                <img src="{{ $game['cover_url'] }}" alt="cover" class="rounded-2xl"/>
             </div>
             <div class="lg:ml-12 lg:mr-36">
                 <h2 class="font-semibold text-4xl mt-4 lg:mt-0 leading-tight mt-1">
                     {{ $game['name'] }}
                 </h2>
                 <div class="text-gray-400 mt-4 sm:mt-0">
-                    <span>{{ collect($game['genres'])->pluck('name')->join(", ") }}</span>
+                    <span>{{ $game['genres'] }}</span>
                     @isset($game['involved_companies'])
                         &middot;
-                        <span>{{ collect($game['involved_companies'])->pluck('company.name')->join(", ") }}</span>
+                        <span>{{ $game['company_names'] }}</span>
                     @endisset
                     @isset($game['platforms'])
                         &middot;
-                        <span>{{ collect($game['platforms'])->pluck('abbreviation')->join(", ") }}</span>
+                        <span>{{ $game['platforms'] }}</span>
                     @endisset
                 </div>
                 <div class="flex flex-wrap items-center mt-8">
                     <div class="flex items-center">
                         <div class="w-16 h-16 bg-gray-800 rounded-full">
                             <div class="font-semibold text-xs flex justify-center items-center h-full">
-                                {{ isset($game['rating']) ? round($game['rating'], 1) . '%' : 'NA' }}
+                                {{ $game['rating'] }}
                             </div>
                         </div>
                         <div class="ml-4 text-xs">Member <br>Score</div>
@@ -37,7 +33,7 @@
                     <div class="flex items-center ml-12">
                         <div class="w-16 h-16 bg-gray-800 rounded-full">
                             <div class="font-semibold text-xs flex justify-center items-center h-full">
-                                {{ isset($game['aggregated_rating']) ? round($game['aggregated_rating'], 1) . '%' : 'NA' }}
+                                {{ $game['aggregated_rating'] }}
                             </div>
                         </div>
                         <div class="ml-4 text-xs">Critic <br>Score</div>
@@ -118,11 +114,7 @@
             <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Screenshots</h2>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-8">
                 @foreach($game['screenshots'] as $screenshot)
-                    <img
-                        src="{{ str_replace('thumb', 'screenshot_huge', $screenshot['url']) }}"
-                        alt="screenshot"
-                        class="rounded-2xl"
-                    />
+                    <img src="{{ $screenshot }}" alt="screenshot" class="rounded-2xl"/>
                 @endforeach
             </div>
         </div>
@@ -130,19 +122,19 @@
         <div class="similar-games-container mt-8">
             <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Similar Games</h2>
             <div class="popular-games text-sm grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-6 gap-12">
-                @foreach(collect($game['similar_games'])->filter(fn($item) => isset($item['cover']))->all() as $similar)
+                @foreach($game['similar_games'] as $similar)
                     <div class="game mt-8 flex md:block flex-col items-center">
                         <div class="relative inline-block">
                             <a href="{{ route('games.show', $similar['slug']) }}">
                                 <img
-                                    src="{{ str_replace('thumb', 'cover_big', $similar['cover']['url']) }}"
+                                    src="{{ $similar['cover_url'] }}"
                                     alt="game cover"
                                     class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
                                 />
                             </a>
                             <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
                                 <div class="font-semibold text-xs flex justify-center items-center h-full">
-                                    {{ isset($similar['rating']) ? round($similar['rating'], 1) . '%' : 'NA' }}
+                                    {{ $similar['rating'] }}
                                 </div>
                             </div>
                         </div>
@@ -151,7 +143,7 @@
                         </a>
                         @isset($similar['platforms'])
                             <div class="text-gray-400 mt-1 text-center md:text-left">
-                                {{ collect($similar['platforms'])->pluck('abbreviation')->join(", ") }}
+                                {{ $similar['platforms'] }}
                             </div>
                         @endisset
                     </div>

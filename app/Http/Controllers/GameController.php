@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\FormatsGames;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -11,6 +12,8 @@ use Illuminate\Support\Facades\Http;
 
 class GameController extends Controller
 {
+    use FormatsGames;
+
     /**
      * Display a listing of the resource.
      *
@@ -76,7 +79,7 @@ class GameController extends Controller
 
         abort_if(! $game, 404);
 
-        return view('show', ['game' => $game[0]]);
+        return view('show', ['game' => $this->singleGame($game)]);
     }
 
     /**
