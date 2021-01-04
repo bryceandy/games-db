@@ -4,11 +4,7 @@
 >
     @forelse($popularGames as $game)
         <div class="game mt-8 flex md:block flex-col items-center">
-            <x-game-card
-                :route-url="route('games.show', $game['slug'])"
-                :cover-url="$game['cover_url']"
-                :rating="$game['rating']"
-            />
+            <x-game-card :game="$game"/>
             <a
                 href="{{ route('games.show', $game['slug']) }}"
                 class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8"

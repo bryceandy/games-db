@@ -133,11 +133,7 @@
             <div class="popular-games text-sm grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-6 gap-12">
                 @foreach($game['similar_games'] as $similar)
                     <div class="game mt-8 flex md:block flex-col items-center">
-                        <x-game-card
-                            :route-url="route('games.show', $similar['slug'])"
-                            :cover-url="$similar['cover_url']"
-                            :rating="$similar['rating']"
-                        />
+                        <x-game-card :game="$similar"/>
                         <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">
                             {{ $similar['name'] }}
                         </a>

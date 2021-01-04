@@ -7,24 +7,16 @@ use Illuminate\View\Component;
 
 class GameCard extends Component
 {
-    public string $routeUrl;
-
-    public string $coverUrl;
-
-    public float|int|string $rating;
+    public array $game;
 
     /**
      * Create a new component instance.
      *
-     * @param $routeUrl
-     * @param $coverUrl
-     * @param $rating
+     * @param $game
      */
-    public function __construct($routeUrl, $coverUrl, $rating)
+    public function __construct($game)
     {
-        $this->routeUrl = $routeUrl;
-        $this->coverUrl = $coverUrl;
-        $this->rating = $rating;
+        $this->game = $game;
     }
 
     /**
