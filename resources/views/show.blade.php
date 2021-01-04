@@ -38,7 +38,7 @@
                         </div>
                         <div class="ml-4 text-xs">Critic <br>Score</div>
                     </div>
-                    @if(count($game['websites']))
+                    @isset($game['websites'])
                         <div class="socials flex items-center space-x-4 ml-12 mt-4 sm:mt-0">
                             <div class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center">
                                 <a href="{{ $game['websites'][0]['url'] }}" class="hover:text-gray-400">
@@ -90,7 +90,7 @@
                                 @endif
                             @endforeach
                         </div>
-                    @endif
+                    @endisset
                 </div>
                 <p class="mt-12">
                     {{ $game['storyline'] ?? $game['summary'] }}
