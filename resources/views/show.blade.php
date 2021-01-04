@@ -16,6 +16,10 @@
                 </h2>
                 <div class="text-gray-400 mt-4 sm:mt-0">
                     <span>{{ collect($game['genres'])->pluck('name')->join(", ") }}</span>
+                    @isset($game['involved_companies'])
+                        &middot;
+                        <span>{{ collect($game['involved_companies'])->pluck('company.name')->join(", ") }}</span>
+                    @endisset
                     @isset($game['platforms'])
                         &middot;
                         <span>{{ collect($game['platforms'])->pluck('abbreviation')->join(", ") }}</span>
