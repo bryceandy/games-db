@@ -114,7 +114,13 @@
             <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Screenshots</h2>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-8">
                 @foreach($game['screenshots'] as $screenshot)
-                    <img src="{{ $screenshot }}" alt="screenshot" class="rounded-2xl"/>
+                    <a href="{{ $screenshot['huge'] }}">
+                        <img
+                            src="{{ $screenshot['big'] }}"
+                            alt="screenshot"
+                            class="hover:opacity-75 transition ease-in-out duration-100 rounded-2xl"
+                        />
+                    </a>
                 @endforeach
             </div>
         </div>

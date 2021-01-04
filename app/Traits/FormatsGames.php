@@ -18,7 +18,10 @@ trait FormatsGames
                 'rating' => $this->getRating($game, 'rating'),
                 'aggregated_rating' => $this->getRating($game, 'aggregated_rating'),
                 'screenshots' => collect($game['screenshots'])
-                    ->map(fn($screenshot) => $this->getImageUrl($screenshot, 'screenshot_huge')),
+                    ->map(fn($screenshot) => [
+                        'big' => $this->getImageUrl($screenshot, 'screenshot_big'),
+                        'huge' => $this->getImageUrl($screenshot, 'screenshot_huge'),
+                    ]),
                 'similar_games' => $this->formatSimilarGames($game),
                 'trailer' => 'https://youtube.com/watch/' . $game['videos'][0]['video_id'],
             ]))
