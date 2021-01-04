@@ -3,6 +3,7 @@
 namespace Tests;
 
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use Illuminate\Support\Facades\Http;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -14,7 +15,16 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        $this->fakeGame = [
+        $this->fakeGame = $this->getFakeGame();
+
+        Http::fake([
+            config('igdb.base_url') . 'games' => Http::response($this->fakeGame),
+        ]);
+    }
+
+    private function getFakeGame(): array
+    {
+        return [
             0 => [
                 "aggregated_rating" => 87.9,
                 "aggregated_rating_count" => 12,
