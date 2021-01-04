@@ -37,7 +37,7 @@
                     <div class="flex items-center ml-12">
                         <div class="w-16 h-16 bg-gray-800 rounded-full">
                             <div class="font-semibold text-xs flex justify-center items-center h-full">
-                                {{ isset($game['total_rating']) ? round($game['total_rating'], 1) . '%' : 'NA' }}
+                                {{ isset($game['aggregated_rating']) ? round($game['aggregated_rating'], 1) . '%' : 'NA' }}
                             </div>
                         </div>
                         <div class="ml-4 text-xs">Critic <br>Score</div>
