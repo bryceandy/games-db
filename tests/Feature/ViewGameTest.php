@@ -16,6 +16,10 @@ class ViewGameTest extends TestCase
 
         $response = $this->get(route('games.show', 'marvels-spider-man-miles-morales'));
 
+        $response->assertSuccessful();
+
+        $response->assertSee("Marvel's Spider-Man: Miles Morales");
+
         $response->assertSee('Sony Interactive Entertainment');
     }
 
