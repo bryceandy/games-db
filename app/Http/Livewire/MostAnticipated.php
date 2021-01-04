@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -11,6 +12,11 @@ use Livewire\Component;
 class MostAnticipated extends Component
 {
     public array $mostAnticipated = [];
+
+    public function render(): Factory|View|Application
+    {
+        return view('livewire.most-anticipated');
+    }
 
     public function loadGames()
     {
@@ -33,12 +39,15 @@ class MostAnticipated extends Component
             ->post(config('igdb.base_url') . 'games');
 
         if ($response->successful()) {
-            $this->mostAnticipated = $response->json();
+            $this->mostAnticipated = $this->formatForView($response->json());
         }
     }
 
-    public function render(): Factory|View|Application
+    private function formatForView($games): array
     {
-        return view('livewire.most-anticipated');
+        return collect($games)->map(fn($game) => collect($game)->merge([
+            'cover_url' => str_replace('thumb', 'cover_small', $game['cover']['url']),
+            'first_release_date' => Carbon::parse($game['first_release_date'])->format('M d, Y'),
+        ]))->toArray();
     }
 }

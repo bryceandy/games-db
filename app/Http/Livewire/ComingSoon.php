@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -11,6 +12,11 @@ use Livewire\Component;
 class ComingSoon extends Component
 {
     public array $comingSoon = [];
+
+    public function render(): Factory|View|Application
+    {
+        return view('livewire.coming-soon');
+    }
 
     public function loadGames()
     {
@@ -38,8 +44,11 @@ class ComingSoon extends Component
         }
     }
 
-    public function render(): Factory|View|Application
+    private function formatForView($games): array
     {
-        return view('livewire.coming-soon');
+        return collect($games)->map(fn($game) => collect($game)->merge([
+            'cover_url' => str_replace('thumb', 'cover_small', $game['cover']['url']),
+            'first_release_date' => Carbon::parse($game['first_release_date'])->format('M d, Y'),
+        ]))->toArray();
     }
 }
