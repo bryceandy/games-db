@@ -119,7 +119,7 @@
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-8">
                 @foreach($game['screenshots'] as $screenshot)
                     <img
-                        src="{{ str_replace('thumb', 'screenshot_med', $screenshot['url']) }}"
+                        src="{{ str_replace('thumb', 'screenshot_huge', $screenshot['url']) }}"
                         alt="screenshot"
                         class="rounded-2xl"
                     />
