@@ -12,6 +12,11 @@ class PopularGames extends Component
 {
     public array $popularGames = [];
 
+    public function render(): Factory|View|Application
+    {
+        return view('livewire.popular-games');
+    }
+
     public function loadGames(): void
     {
         $before = now()->subMonths(2)->timestamp;
@@ -35,12 +40,16 @@ class PopularGames extends Component
             ->post(config('igdb.base_url') . 'games');
 
         if ($response->successful()) {
-            $this->popularGames = $response->json();
+            $this->popularGames = $this->formatForView($response->json());
         }
     }
 
-    public function render(): Factory|View|Application
+    private function formatForView($games): array
     {
-        return view('livewire.popular-games');
+        return collect($games)->map(fn($game) => collect($game)->merge([
+            'cover_url' => str_replace('thumb', 'cover_big', $game['cover']['url']),
+            'rating' => isset($game['rating']) ? round($game['rating'], 1) . '%' : 'NA',
+            'platforms' => collect($game['platforms'])->pluck('abbreviation')->join(", "),
+        ]))->toArray();
     }
 }
