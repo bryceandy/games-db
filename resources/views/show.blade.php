@@ -4,7 +4,11 @@
     <div class="container mx-auto px-4">
         <div class="game-details border-b border-gray-800 pb-12 flex flex-col lg:flex-row">
             <div class="flex md:flex-none flex-col items-center">
-                <img src="{{ $game['cover_url'] ?? asset('cover_placeholder.jpg') }}" alt="cover" class="rounded-2xl"/>
+                <img
+                    src="{{ $game['cover_url'] ?? asset('cover_placeholder.jpg') }}"
+                    alt="cover"
+                    class="w-64 rounded-2xl"
+                />
             </div>
             <div class="lg:ml-12 lg:mr-36">
                 <h2 class="font-semibold text-4xl mt-4 lg:mt-0 leading-tight mt-1">
@@ -105,7 +109,7 @@
                         </div>
                     @endisset
                 </div>
-                <p class="mt-12">{{ $game['summary'] }}</p>
+                <p class="mt-12">{{ $game['summary'] ?? '' }}</p>
                 @isset($game['videos'])
                     <div class="mt-12">
                         <a
