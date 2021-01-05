@@ -134,6 +134,7 @@
                                     <div class="flex justify-end pr-4 pt-2">
                                         <button
                                             @click="isTrailerModalVisible = false"
+                                            @keydown.escape.window="isTrailerModalVisible = false"
                                             class="text-3xl leading-none hover:text-gray-300"
                                         >
                                             &times;
