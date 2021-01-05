@@ -6,6 +6,7 @@ use App\Traits\FormatsGames;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
@@ -42,14 +43,17 @@ class PopularGames extends Component
             )
             ->post(config('igdb.base_url') . 'games');
 
-        if ($response->successful()) {
-            $this->popularGames = $this->bigCoverGames($response->json());
+        if ($response->successful()) $this->handleResponseSuccessful($response);
+    }
 
-            collect($this->popularGames)
-                ->each(fn ($game) => $this->emit('gameWithRatingAdded', [
-                    'id' => $game['slug'],
-                    'rating' => $game['rating'],
-                ]));
-        }
+    private function handleResponseSuccessful(Response $response)
+    {
+        $this->popularGames = $this->bigCoverGames($response->json());
+
+        collect($this->popularGames)
+            ->each(fn ($game) => $this->emit('gameWithRatingAdded', [
+                'id' => $game['slug'],
+                'rating' => $game['rating'],
+            ]));
     }
 }

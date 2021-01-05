@@ -6,6 +6,7 @@ use App\Traits\FormatsGames;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
@@ -41,14 +42,17 @@ class RecentlyReviewed extends Component
             )
             ->post(config('igdb.base_url') . 'games');
 
-        if ($response->successful()) {
-            $this->recentlyReviewed = $this->bigCoverGames($response->json());
+        if ($response->successful()) $this->handleResponseSuccessful($response);
+    }
 
-            collect($this->recentlyReviewed)
-                ->each(fn ($game) => $this->emit('reviewGameWithRatingAdded', [
-                    'id' => 'review_' . $game['slug'],
-                    'rating' => $game['rating'],
-                ]));
-        }
+    private function handleResponseSuccessful(Response $response)
+    {
+        $this->recentlyReviewed = $this->bigCoverGames($response->json());
+
+        collect($this->recentlyReviewed)
+            ->each(fn ($game) => $this->emit('reviewGameWithRatingAdded', [
+                'id' => 'review_' . $game['slug'],
+                'rating' => $game['rating'],
+            ]));
     }
 }
