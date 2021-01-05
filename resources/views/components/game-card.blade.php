@@ -7,10 +7,13 @@
                 class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
             />
         </a>
-        <div class="absolute w-16 h-16 bg-gray-800 rounded-full" style="bottom: -20px;right: -20px;">
-            <div class="font-semibold text-xs flex justify-center items-center h-full">
-                {{ $game['rating'] }}
-            </div>
+        <div id="{{ $game['slug'] }}" class="absolute w-16 h-16 bg-gray-800 rounded-full text-sm" style="bottom: -20px;right: -20px;">
+            @push('scripts')
+                @include('_rating', [
+                    'id' => $game['slug'],
+                    'rating' => $game['rating'],
+                ])
+            @endpush
         </div>
     </div>
     <a
