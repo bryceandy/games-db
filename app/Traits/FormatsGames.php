@@ -73,7 +73,7 @@ trait FormatsGames
 
     #[Pure] private function getRating($game, $key): string
     {
-        return isset($game[$key]) ? round($game[$key], 1) . '%' : '0%';
+        return isset($game[$key]) ? round($game[$key], 1) : '0';
     }
 
     private function formatSimilarGames($game): array
