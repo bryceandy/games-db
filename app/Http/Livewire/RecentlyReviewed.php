@@ -43,6 +43,12 @@ class RecentlyReviewed extends Component
 
         if ($response->successful()) {
             $this->recentlyReviewed = $this->bigCoverGames($response->json());
+
+            collect($this->recentlyReviewed)
+                ->each(fn ($game) => $this->emit('reviewGameWithRatingAdded', [
+                    'id' => 'review_' . $game['slug'],
+                    'rating' => $game['rating'],
+                ]));
         }
     }
 }

@@ -1,5 +1,5 @@
 <script>
-    @if ($event) window.livewire.on('gameWithRatingAdded', (params) => { @endif
+    @if ($event) window.livewire.on('{{ $event }}', (params) => { @endif
 
         @if ($event)
             var container = document.getElementById(params.id);

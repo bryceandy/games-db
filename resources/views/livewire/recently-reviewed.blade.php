@@ -14,11 +14,11 @@
                         class="w-48 rounded-xl hover:opacity-75 transition ease-in-out duration-100"
                     />
                 </a>
-                <div class="absolute w-16 h-16 bg-gray-900 rounded-full" style="bottom: -20px;right: -20px;">
-                    <div class="font-semibold text-xs flex justify-center items-center h-full">
-                        {{ $game['rating'] }}
-                    </div>
-                </div>
+                <div
+                    id="review_{{ $game['slug'] }}"
+                    class="absolute w-16 h-16 bg-gray-900 rounded-full text-xs"
+                    style="bottom: -20px;right: -20px;"
+                ></div>
             </div>
             <div class="ml-0 md:ml-12">
                 <a
@@ -53,3 +53,9 @@
         @endforeach
     @endforelse
 </div>
+
+@push('scripts')
+    @include('_rating', [
+        'event' => 'reviewGameWithRatingAdded',
+    ])
+@endpush
