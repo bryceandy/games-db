@@ -20,9 +20,11 @@
                         &middot;
                         <span>{{ $game['platforms'] }}</span>
                     @endisset
-                    <span class="block text-gray-200 mt-8">
-                        First release - {{ $game['first_release_date'] }}
-                    </span>
+                    @isset($game['first_release_date'])
+                        <span class="block text-gray-200 mt-8">
+                            First release - {{ $game['first_release_date'] }}
+                        </span>
+                    @endisset
                 </div>
                 <div class="flex flex-wrap items-center mt-8">
                     <div class="flex items-center">
