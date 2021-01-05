@@ -28,7 +28,7 @@ class SearchDropdown extends Component
                 "
                     search \"{$this->search}\";
                     fields name, cover.url, slug;
-                    limit 6;
+                    limit 12;
                 ",
                 'text/plain'
             )
@@ -43,9 +43,11 @@ class SearchDropdown extends Component
     {
         if ($response->successful()) {
             $this->searchResults = collect($response->json())
+                ->filter(fn ($game) => isset($game['cover']))
                 ->map(fn ($game) => collect($game)->merge([
                     'cover_url' => $this->getImageUrl($game,'micro', 'cover'),
                 ]))
+                ->take(6)
                 ->toArray();
         }
     }
