@@ -1,7 +1,7 @@
 <script>
-    const container = document.getElementById('{{ $id }}');
+    var container = document.getElementById('{{ $id }}');
 
-    const bar = new ProgressBar.Circle(container, {
+    var bar = new ProgressBar.Circle(container, {
         color: '#fff',
         strokeWidth: 6,
         trailWidth: 3,
