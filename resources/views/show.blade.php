@@ -106,37 +106,41 @@
                     @endisset
                 </div>
                 <p class="mt-12">{{ $game['summary'] }}</p>
-                <div class="mt-12">
-                    <a
-                        href="{{ $game['trailer'] }}"
-                        class="inline-flex bg-blue-500 text-white font-semibold px-6 py-3 hover:bg-blue-600 rounded-full transition ease-in-out duration-150"
-                    >
-                        <svg class="w-6 fill-current" viewBox="0 0 24 24">
-                            <path d="M0 0h24v24H0z" fill="none" />
-                            <path
-                                d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-                            />
-                        </svg>
-                        <span class="ml-2">Play Trailer</span>
-                    </a>
-                </div>
+                @isset($game['videos'])
+                    <div class="mt-12">
+                        <a
+                            href="{{ $game['trailer'] }}"
+                            class="inline-flex bg-blue-500 text-white font-semibold px-6 py-3 hover:bg-blue-600 rounded-full transition ease-in-out duration-150"
+                        >
+                            <svg class="w-6 fill-current" viewBox="0 0 24 24">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                                />
+                            </svg>
+                            <span class="ml-2">Play Trailer</span>
+                        </a>
+                    </div>
+                @endisset
             </div>
         </div>
         {{--End game details--}}
-        <div class="images-container border-b border-gray-800 pb-12 mt-8">
-            <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Screenshots</h2>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-8">
-                @foreach($game['screenshots'] as $screenshot)
-                    <a href="{{ $screenshot['huge'] }}">
-                        <img
-                            src="{{ $screenshot['big'] }}"
-                            alt="screenshot"
-                            class="hover:opacity-75 transition ease-in-out duration-100 rounded-2xl"
-                        />
-                    </a>
-                @endforeach
+        @isset($game['screenshots'])
+            <div class="images-container border-b border-gray-800 pb-12 mt-8">
+                <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Screenshots</h2>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-8">
+                    @foreach($game['screenshots'] as $screenshot)
+                        <a href="{{ $screenshot['huge'] }}">
+                            <img
+                                src="{{ $screenshot['big'] }}"
+                                alt="screenshot"
+                                class="hover:opacity-75 transition ease-in-out duration-100 rounded-2xl"
+                            />
+                        </a>
+                    @endforeach
+                </div>
             </div>
-        </div>
+        @endisset
         {{--End images container--}}
         <div class="similar-games-container mt-8">
             <h2 class="text-blue-500 uppercase tracking-wide font-semibold">Similar Games</h2>

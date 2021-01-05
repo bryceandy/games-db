@@ -17,18 +17,28 @@ trait FormatsGames
                 'platforms' => $this->getPlatforms($game),
                 'rating' => $this->getRating($game, 'rating'),
                 'aggregated_rating' => $this->getRating($game, 'aggregated_rating'),
-                'screenshots' => collect($game['screenshots'])
-                    ->map(fn ($screenshot) => [
-                        'big' => $this->getImageUrl($screenshot, 'screenshot_big'),
-                        'huge' => $this->getImageUrl($screenshot, 'screenshot_huge'),
-                    ])
-                    ->take(9),
+                'screenshots' => $this->getScreenshots($game),
                 'similar_games' => $this->formatSimilarGames($game),
-                'trailer' => 'https://youtube.com/watch/' . $game['videos'][0]['video_id'],
+                'trailer' => isset($game['videos'])
+                    ? 'https://youtube.com/watch/' . $game['videos'][0]['video_id']
+                    : null,
                 'first_release_date' => $this->getReleaseDate($game),
             ]))
             ->first()
             ->toArray();
+    }
+
+    public function getScreenshots($game): ?array
+    {
+        return isset($game['screenshots'])
+            ? collect($game['screenshots'])
+                ->map(fn ($screenshot) => [
+                    'big' => $this->getImageUrl($screenshot, 'screenshot_big'),
+                    'huge' => $this->getImageUrl($screenshot, 'screenshot_huge'),
+                ])
+                ->take(9)
+                ->toArray()
+            : null;
     }
 
     public function bigCoverGames($games): array
