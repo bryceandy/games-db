@@ -7,15 +7,17 @@
                 class="rounded-xl hover:opacity-75 transition ease-in-out duration-100"
             />
         </a>
-        <div id="{{ $game['slug'] }}" class="absolute w-16 h-16 bg-gray-800 rounded-full text-sm" style="bottom: -20px;right: -20px;">
-            @push('scripts')
-                @include('_rating', [
-                    'id' => $game['slug'],
-                    'rating' => $game['rating'],
-                    'event' => null,
-                ])
-            @endpush
-        </div>
+        @if($game['rating'])
+            <div id="{{ $game['slug'] }}" class="absolute w-16 h-16 bg-gray-800 rounded-full text-sm" style="bottom: -20px;right: -20px;">
+                @push('scripts')
+                    @include('_rating', [
+                        'id' => $game['slug'],
+                        'rating' => $game['rating'],
+                        'event' => null,
+                    ])
+                @endpush
+            </div>
+        @endif
     </div>
     <a
         href="{{ route('games.show', $game['slug']) }}"
