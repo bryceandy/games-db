@@ -22,7 +22,7 @@ trait FormatsGames
                 'screenshots' => $this->getScreenshots($game),
                 'similar_games' => $this->formatSimilarGames($game),
                 'trailer' => isset($game['videos'])
-                    ? 'https://youtube.com/watch/' . $game['videos'][0]['video_id']
+                    ? 'https://youtube.com/embed/' . $game['videos'][0]['video_id']
                     : null,
                 'first_release_date' => $this->getReleaseDate($game),
             ]))
