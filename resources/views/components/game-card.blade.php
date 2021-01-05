@@ -12,6 +12,7 @@
                 @include('_rating', [
                     'id' => $game['slug'],
                     'rating' => $game['rating'],
+                    'event' => null,
                 ])
             @endpush
         </div>

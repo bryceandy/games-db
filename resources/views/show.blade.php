@@ -31,6 +31,7 @@
                                 @include('_rating', [
                                     'id' => 'member-rating',
                                     'rating' => $game['rating'],
+                                    'event' => null,
                                 ])
                             @endpush
                         </div>
@@ -42,6 +43,7 @@
                                 @include('_rating', [
                                     'id' => 'critic-rating',
                                     'rating' => $game['aggregated_rating'],
+                                    'event' => null,
                                 ])
                             @endpush
                         </div>
