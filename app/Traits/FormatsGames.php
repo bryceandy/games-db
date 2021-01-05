@@ -52,9 +52,11 @@ trait FormatsGames
             ->toArray();
     }
 
-    private function getReleaseDate($game): string
+    private function getReleaseDate($game): string|null
     {
-        return Carbon::parse($game['first_release_date'])->format('M d, Y');
+        return isset($game['first_release_date'])
+            ? Carbon::parse($game['first_release_date'])->format('M d, Y')
+            : null;
     }
 
     private function getImageUrl($obj, $uriName, $type = null): array|string
