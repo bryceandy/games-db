@@ -15,11 +15,11 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        $this->fakeGame = $this->getFakeGame();
-
         Http::fake([
-            config('igdb.base_url') . 'games' => Http::response($this->fakeGame),
+            config('igdb.base_url') . 'games' => Http::response($this->getFakeGame()),
         ]);
+
+        $this->fakeGame = $this->getFakeGame()[0];
     }
 
     private function getFakeGame(): array

@@ -16,10 +16,14 @@ class ViewGameTest extends TestCase
 
         $response->assertSuccessful();
 
-        $response->assertSee("Marvel's Spider-Man: Miles Morales");
+        $response->assertSee($this->fakeGame['name']);
 
-        $response->assertSee('Sony Interactive Entertainment');
+        $companies = collect($this->fakeGame['involved_companies'])
+            ->pluck('company.name')
+            ->join(", ");
 
-        $response->assertSee(round($this->fakeGame[0]['aggregated_rating'], 1));
+        $response->assertSee($companies);
+
+        $response->assertSee(round($this->fakeGame['aggregated_rating'], 1));
     }
 }

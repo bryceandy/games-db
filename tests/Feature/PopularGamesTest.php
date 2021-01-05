@@ -14,7 +14,7 @@ class PopularGamesTest extends TestCase
         Livewire::test(PopularGames::class)
             ->assertSet('popularGames', [])
             ->call('loadGames')
-            ->assertSee("Marvel's Spider-Man: Miles Morales")
-            ->assertSee(round($this->fakeGame[0]['rating'], 1));
+            ->assertSee($this->fakeGame['name'])
+            ->assertSee(round($this->fakeGame['rating'], 1));
     }
 }
