@@ -6,6 +6,7 @@ use App\Traits\FormatsGames;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
@@ -40,6 +41,11 @@ class MostAnticipated extends Component
             )
             ->post(config('igdb.base_url') . 'games');
 
+        $this->handleResponse($response);
+    }
+
+    private function handleResponse(Response $response)
+    {
         if ($response->successful()) {
             $this->mostAnticipated = $this->smallCoverGames($response->json());
         }

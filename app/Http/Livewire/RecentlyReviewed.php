@@ -42,17 +42,19 @@ class RecentlyReviewed extends Component
             )
             ->post(config('igdb.base_url') . 'games');
 
-        if ($response->successful()) $this->handleResponseSuccessful($response);
+        $this->handleResponse($response);
     }
 
-    private function handleResponseSuccessful(Response $response)
+    private function handleResponse(Response $response)
     {
-        $this->recentlyReviewed = $this->bigCoverGames($response->json());
+        if ($response->successful()) {
+            $this->recentlyReviewed = $this->bigCoverGames($response->json());
 
-        collect($this->recentlyReviewed)
-            ->each(fn ($game) => $this->emit('reviewGameWithRatingAdded', [
-                'id' => 'review_' . $game['slug'],
-                'rating' => $game['rating'],
-            ]));
+            collect($this->recentlyReviewed)
+                ->each(fn ($game) => $this->emit('reviewGameWithRatingAdded', [
+                    'id' => 'review_' . $game['slug'],
+                    'rating' => $game['rating'],
+                ]));
+        }
     }
 }

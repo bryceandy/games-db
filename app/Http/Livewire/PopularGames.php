@@ -43,18 +43,20 @@ class PopularGames extends Component
             )
             ->post(config('igdb.base_url') . 'games');
 
-        if ($response->successful()) $this->handleResponseSuccessful($response);
+        $this->handleResponse($response);
     }
 
-    private function handleResponseSuccessful(Response $response)
+    private function handleResponse(Response $response)
     {
-        $this->popularGames = $this->bigCoverGames($response->json());
+        if ($response->successful()) {
+            $this->popularGames = $this->bigCoverGames($response->json());
 
-        collect($this->popularGames)
-            ->filter(fn ($game) => $game['rating'])
-            ->each(fn ($game) => $this->emit('gameWithRatingAdded', [
-                'id' => $game['slug'],
-                'rating' => $game['rating'],
-            ]));
+            collect($this->popularGames)
+                ->filter(fn ($game) => $game['rating'])
+                ->each(fn ($game) => $this->emit('gameWithRatingAdded', [
+                    'id' => $game['slug'],
+                    'rating' => $game['rating'],
+                ]));
+        }
     }
 }
