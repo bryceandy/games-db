@@ -1,4 +1,4 @@
-<div class="relative">
+<div class="relative" x-data="{ isVisible: true }" @click.away="isVisible = false">
     <label for="search"></label>
     <input
         wire:model.debounce.300ms="search"
@@ -27,7 +27,7 @@
         />
     </svg>
     @if($search)
-        <div class="absolute z-50 bg-gray-800 text-xs rounded w-64 mt-2">
+        <div class="absolute z-50 bg-gray-800 text-xs rounded w-64 mt-2" x-show="isVisible">
             @if(count($searchResults))
                 <ul>
                     @foreach($searchResults as $game)
