@@ -1,5 +1,11 @@
 <script>
-    var container = document.getElementById('{{ $id }}');
+    @if ($event) window.livewire.on('gameWithRatingAdded', (params) => { @endif
+
+        @if ($event)
+            var container = document.getElementById(params.id);
+        @else
+            var container = document.getElementById('{{ $id }}');
+        @endif
 
     var bar = new ProgressBar.Circle(container, {
         color: '#fff',
@@ -23,5 +29,11 @@
         }
     });
 
-    bar.animate({{ (float) $rating / 100 }});
+        @if ($event)
+            bar.animate(params.rating / 100);
+        @else
+            bar.animate({{ (float) $rating / 100 }});
+        @endif
+
+    @if ($event) }) @endif
 </script>

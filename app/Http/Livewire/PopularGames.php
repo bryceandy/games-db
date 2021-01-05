@@ -44,6 +44,12 @@ class PopularGames extends Component
 
         if ($response->successful()) {
             $this->popularGames = $this->bigCoverGames($response->json());
+
+            collect($this->popularGames)
+                ->each(fn ($game) => $this->emit('gameWithRatingAdded', [
+                    'id' => $game['slug'],
+                    'rating' => $game['rating'],
+                ]));
         }
     }
 }
