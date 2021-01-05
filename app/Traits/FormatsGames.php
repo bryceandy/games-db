@@ -11,7 +11,9 @@ trait FormatsGames
     {
         return collect($games)
             ->map(fn ($game) => collect($game)->merge([
-                'cover_url' => $this->getImageUrl($game, 'cover_big', 'cover'),
+                'cover_url' => isset($game['cover'])
+                    ? $this->getImageUrl($game, 'cover_big', 'cover')
+                    : null,
                 'genres' => collect($game['genres'])->pluck('name')->join(", "),
                 'company_names' => $this->getCompanyNames($game),
                 'platforms' => $this->getPlatforms($game),
