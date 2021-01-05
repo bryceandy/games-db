@@ -26,7 +26,7 @@
                 </div>
                 <div class="flex flex-wrap items-center mt-8">
                     <div class="flex items-center">
-                        <div class="w-16 h-16 bg-gray-800 rounded-full">
+                        <div id="member-rating" class="w-16 h-16 bg-gray-800 rounded-full">
                             <div class="font-semibold text-xs flex justify-center items-center h-full">
                                 {{ $game['rating'] }}
                             </div>
@@ -34,7 +34,7 @@
                         <div class="ml-4 text-xs">Member <br>Score</div>
                     </div>
                     <div class="flex items-center ml-12">
-                        <div class="w-16 h-16 bg-gray-800 rounded-full">
+                        <div id="critic-rating" class="w-16 h-16 bg-gray-800 rounded-full">
                             <div class="font-semibold text-xs flex justify-center items-center h-full">
                                 {{ $game['aggregated_rating'] }}
                             </div>
