@@ -7,7 +7,7 @@
         placeholder="Search..."
     />
     <svg
-        class="absolute top-0 flex items-center ml-2 h-full text-gray-400 w-4 fill-current"
+        class="absolute top-0 ml-2 h-full text-gray-400 w-4 fill-current"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512 512"
     >
