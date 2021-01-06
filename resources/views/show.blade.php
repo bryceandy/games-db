@@ -67,7 +67,7 @@
                                 </a>
                             </div>
                             @foreach($game['websites'] as $website)
-                                @if(str_contains($website['url'], 'instagram'))
+                                @if (str_contains($website['url'], 'instagram'))
                                     <div class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center">
                                         <a href="{{ $website['url'] }}" target="_blank" class="hover:text-gray-400">
                                             <svg class="w-5 h-5 fill-current" viewBox="0 0 16 18" fill="none">
