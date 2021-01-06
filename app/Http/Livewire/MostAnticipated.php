@@ -28,7 +28,7 @@ class MostAnticipated extends Component
 
         $response = Http::withHeaders([
             'Client-ID' => config('igdb.credentials.client_id'),
-            'Authorization' => "Bearer dtzj0cl1wqhisdiz8z9glxfko0uu1p",
+            'Authorization' => "Bearer " . env('TWITCH_TOKEN'),
         ])
             ->withBody(
                 "
