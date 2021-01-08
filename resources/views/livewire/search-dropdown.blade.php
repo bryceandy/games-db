@@ -5,10 +5,19 @@
         type="text"
         id="search"
         class="bg-gray-800 text-sm rounded-full px-3 py-1 w-64 focus:outline-none focus:ring focus:border-blue-300 pl-8"
-        placeholder="Search..."
+        placeholder="Search (Press '/' to focus)"
+        x-ref="search"
+        @keydown.window="
+            if (event.keyCode === 191) {
+                event.preventDefault();
+                $refs.search.focus();
+            }
+        "
         autocomplete="off"
         @focus="isVisible = true"
         @keydown.escape.window="isVisible = false"
+        @keydown="isVisible = true"
+        @keydown.shift.tab="isVisible = false"
     />
     <svg
         class="absolute top-0 ml-2 h-full text-gray-400 w-4 fill-current"
@@ -38,6 +47,7 @@
                             <a
                                 href="{{ route('games.show', $game['slug']) }}"
                                 class="rounded block hover:bg-gray-700 px-3 py-3 flex items-center transition ease-in-out duration-150"
+                                @if ($loop->last) @keydown.tab="isVisible = false" @endif
                             >
                                 <img
                                     src="{{ $game['cover_url'] ?? asset('cover_placeholder.jpg') }}"
