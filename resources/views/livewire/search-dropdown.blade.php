@@ -39,7 +39,7 @@
         />
     </svg>
     @if ($search)
-        <div class="absolute z-50 bg-gray-800 text-xs rounded w-64 mt-2" x-show="isVisible">
+        <div class="absolute z-50 bg-gray-800 text-xs rounded w-64 mt-2" x-show.transition.opacity.duration.500="isVisible">
             @if (count($searchResults))
                 <ul>
                     @foreach($searchResults as $game)
