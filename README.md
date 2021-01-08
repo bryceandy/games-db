@@ -30,8 +30,14 @@ TWITCH_CLIENT_SECRET=
 TWITCH_AUTH_URL=https://id.twitch.tv/oauth2/token
 IGDB_REQUEST_URL=https://api.igdb.com/v4/
 ```
+
+3. __Run the app__
+
+```bash
+php artisan serve
+```
    
-3. __Testing__
+4. __Testing__
 
 Run the test suite
 
