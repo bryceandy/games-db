@@ -128,7 +128,7 @@
                             <div
                                 x-show="isTrailerModalVisible"
                                 style="background-color: rgba(0, 0, 0, .5)"
-                                class="fixed top-0 left-0 w-full h-full flex items-center shadow-lg overflow-y-auto"
+                                class="fixed top-0 left-0 w-full h-full z-40 flex items-center shadow-lg overflow-y-auto"
                             >
                                 <div class="container mx-auto lg:px-32 rounded-lg overflow-y-auto">
                                     <div class="bg-gray-900 rounded">
@@ -190,7 +190,7 @@
                     <div
                         x-show="isImageModalVisible"
                         style="background-color: rgba(0, 0, 0, .5)"
-                        class="fixed top-0 left-0 w-full h-full flex items-center shadow-lg overflow-y-auto"
+                        class="fixed top-0 left-0 w-full h-full z-40 flex items-center shadow-lg overflow-y-auto"
                     >
                         <div class="container mx-auto lg:px-32 rounded-lg overflow-y-auto">
                             <div class="bg-gray-900 rounded">
