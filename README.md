@@ -6,6 +6,16 @@ Your environment requires the following dependencies
 
 - PHP 8.0
 
+Clone the repo
+
+```bash
+git clone https://github.com/bryceandy/games-db.git
+```
+ or using the Github CLI
+
+```bash
+gh repo clone bryceandy/games-db
+```
 then run
 
  ```bash
