@@ -29,7 +29,7 @@
                 <div class="ml-6">
                     <a href="#">
                         <svg
-                            class="w-6 text-gray-400 fill-current"
+                            class="w-6 h-5 text-gray-400 fill-current"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 512 512"
                         >
