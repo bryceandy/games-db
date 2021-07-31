@@ -68,8 +68,8 @@ class GameController extends Controller
             ->withBody(
                 "
                     fields *, cover.url, platforms.abbreviation, genres.*, videos.*, game_modes.*, screenshots.*,
-                     'involved_companies.company.name', similar_games.name, similar_games.cover.url,
-                      similar_games.rating, similar_games.platforms.abbreviation, similar_games.slug, websites.*;
+                    involved_companies.company.name, similar_games.name, similar_games.cover.url,
+                    similar_games.rating, similar_games.platforms.abbreviation, similar_games.slug, websites.*;
                     where slug = \"${slug}\";
                 ",
                 'text/plain'
