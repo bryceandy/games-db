@@ -28,7 +28,7 @@ class RecentlyReviewed extends Component
 
         $response = Http::withHeaders([
             'Client-ID' => config('igdb.credentials.client_id'),
-            'Authorization' => "Bearer " . env('TWITCH_TOKEN'),
+            'Authorization' => "Bearer " . config('igdb.credentials.token'),
         ])
             ->withBody(
                 "
