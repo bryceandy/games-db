@@ -14,11 +14,6 @@ class GameController extends Controller
 {
     use FormatsGames;
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Application|Factory|View
-     */
     public function index(): Factory|View|Application
     {
         /*$authRequest = Http::post(
@@ -53,12 +48,6 @@ class GameController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param string $slug
-     * @return Factory|View|Application
-     */
     public function show(string $slug): Factory|View|Application
     {
         $game = Http::withHeaders([
