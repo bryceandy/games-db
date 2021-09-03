@@ -14,17 +14,9 @@ class GameController extends Controller
 {
     use FormatsGames;
 
-    public function index(): Factory|View|Application
+    public function index()
     {
-        /*$authRequest = Http::post(
-            config('igdb.auth_url'),
-            [
-                'client_id' => config('igdb.credentials.client_id'),
-                'client_secret' => config('igdb.credentials.client_secret'),
-                'grant_type' => 'client_credentials',
-            ]
-        );*/
-        return view('index');
+        //
     }
 
     /**
