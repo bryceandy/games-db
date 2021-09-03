@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Traits\Auth\RetrievesAuthHeaders;
 use App\Traits\FormatsGames;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -13,6 +14,7 @@ use Livewire\Component;
 class MostAnticipated extends Component
 {
     use FormatsGames;
+    use RetrievesAuthHeaders;
 
     public array $mostAnticipated = [];
 
@@ -26,10 +28,7 @@ class MostAnticipated extends Component
         $current = now()->timestamp;
         $afterFourMonths = now()->addMonths(4)->timestamp;
 
-        $response = Http::withHeaders([
-            'Client-ID' => config('igdb.credentials.client_id'),
-            'Authorization' => "Bearer " . config('igdb.credentials.token'),
-        ])
+        $response = Http::withHeaders($this->fetchIgdbHeaders())
             ->withBody(
                 "
                     fields name, cover.url, first_release_date, rating_count, platforms.abbreviation, rating, slug;

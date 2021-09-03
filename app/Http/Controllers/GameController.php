@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\Auth\RetrievesAuthHeaders;
 use App\Traits\FormatsGames;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Http;
 class GameController extends Controller
 {
     use FormatsGames;
+    use RetrievesAuthHeaders;
 
     public function index()
     {
@@ -42,10 +44,7 @@ class GameController extends Controller
 
     public function show(string $slug): Factory|View|Application
     {
-        $game = Http::withHeaders([
-            'Client-ID' => config('igdb.credentials.client_id'),
-            'Authorization' => "Bearer " . config('igdb.credentials.token'),
-        ])
+        $game = Http::withHeaders($this->fetchIgdbHeaders())
             ->withBody(
                 "
                     fields *, cover.url, platforms.abbreviation, genres.*, videos.*, game_modes.*, screenshots.*,

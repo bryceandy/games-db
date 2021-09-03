@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Traits\Auth\RetrievesAuthHeaders;
 use App\Traits\FormatsGames;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -13,6 +14,7 @@ use Livewire\Component;
 class SearchDropdown extends Component
 {
     use FormatsGames;
+    use RetrievesAuthHeaders;
 
     public string $search = '';
 
@@ -20,10 +22,7 @@ class SearchDropdown extends Component
 
     public function render(): Factory|View|Application
     {
-        $response = Http::withHeaders([
-            'Client-ID' => config('igdb.credentials.client_id'),
-            'Authorization' => "Bearer " . config('igdb.credentials.token'),
-        ])
+        $response = Http::withHeaders($this->fetchIgdbHeaders())
             ->withBody(
                 "
                     search \"{$this->search}\";
