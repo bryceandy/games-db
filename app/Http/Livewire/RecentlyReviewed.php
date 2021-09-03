@@ -25,7 +25,7 @@ class RecentlyReviewed extends Component
 
     public function loadGames()
     {
-        $response = Cache::remember('reviewed_games', now(), function () {
+        $response = Cache::remember('reviewed_games', now()->addDay(), function () {
             $before = now()->subMonths(2)->timestamp;
             $current = now()->timestamp;
 
