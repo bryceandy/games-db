@@ -17,6 +17,9 @@ abstract class TestCase extends BaseTestCase
 
         Http::fake([
             config('igdb.base_url') . 'games' => Http::response($this->getFakeGame()),
+            config('igdb.auth_url') => Http::response([
+                'access_token' => '123',
+            ])
         ]);
 
         $this->fakeGame = $this->getFakeGame()[0];
