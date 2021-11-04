@@ -7,7 +7,9 @@ use App\Traits\FormatsGames;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Client\RequestException;
 use Illuminate\Http\Client\Response;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
@@ -20,6 +22,9 @@ class SearchDropdown extends Component
 
     public array $searchResults = [];
 
+    /**
+     * @throws RequestException
+     */
     public function render(): Factory|View|Application
     {
         $response = Http::withHeaders($this->fetchIgdbHeaders())
@@ -31,7 +36,8 @@ class SearchDropdown extends Component
                 ",
                 'text/plain'
             )
-            ->post(config('igdb.base_url') . 'games');
+            ->post(config('igdb.base_url') . 'games')
+            ->throwIf(App::isLocal());
 
         $this->handleResponse($response);
 

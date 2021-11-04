@@ -7,6 +7,7 @@ use App\Traits\FormatsGames;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
@@ -41,6 +42,7 @@ class ComingSoon extends Component
                     'text/plain'
                 )
                 ->post(config('igdb.base_url') . 'games')
+                ->throwIf(App::isLocal())
                 ->json();
         });
 
